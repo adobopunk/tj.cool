@@ -1,40 +1,36 @@
-{% include "includes/header-project.html" %}
+{% include "includes/header.html" %}
+{% include "includes/nav.html" %}
 <main id="main">
-  <article>
-    <div id="top"></div>
-    {% include "includes/nav.html" %}
-    <div class="wrapper wrapper-home">
-      <div class="layout-main wrapper-m project-layout">
-        <h1 class="title">
-          {% if client %}{{ client }}{% endif %}{% if title %} | {{ title }}{%
-          endif %}
-        </h1>
-
+  <article class="pm pm-project">
+    <section class="pm-page-hero" data-glow>
+      <div class="pm-glow" aria-hidden="true"><span class="pm-glow__blob pm-glow__blob--a"></span><span class="pm-glow__blob pm-glow__blob--b"></span></div>
+      <div class="pm-wrap">
+        <a class="pm-crumb" href="/case-studies/">&larr; All case studies</a>
+        <p class="pm-eyebrow">{{ client }}{% if agency %} · {{ agency }}{% endif %}</p>
+        <h1>{{ title }}</h1>
+        {% if subtitle %}<p class="pm-lede">{{ subtitle }}</p>{% endif %}
+        {% if metric %}<div class="pm-hero-metric"><strong>{{ metric }}</strong><span>{{ metricLabel }}</span></div>{% endif %}
         {% include "includes/details.html" %}
-        {{ content | safe }}
-        <h2>More Projects:</h2>
-        {# First, create a list of featured projects #} {% set featured_projects
-        = [] %} {% for project in collections.animation %} {% if
-        project.data.feature == "yes" %} {% set featured_projects =
-        (featured_projects.push(project), featured_projects) %} {% endif %} {%
-        endfor %} {# Then create a list of non-featured projects #} {% set
-        non_featured_projects = [] %} {% for project in collections.animation %}
-        {% if project.data.feature == "no" or not project.data.feature %} {% set
-        non_featured_projects = (non_featured_projects.push(project),
-        non_featured_projects) %} {% endif %} {% endfor %} {# Combine the two
-        lists #} {% set all_projects =
-        featured_projects.concat(non_featured_projects) %} {# Get the current
-        project's URL #} {% set currentUrl = page.url %} {% set currentIndex =
-        -1 %} {# Loop through the projects to find the current index #} {% for
-        project in all_projects %} {% if project.url == currentUrl %} {% set
-        currentIndex = loop.index0 %} {% endif %} {% endfor %} {# Set next1 and
-        next2 to always show the next two projects, wrapping around #} {% set
-        nextIndex1 = (currentIndex + 1) % all_projects.length %} {% set
-        nextIndex2 = (currentIndex + 2) % all_projects.length %} {% set next1 =
-        all_projects[nextIndex1] %} {% set next2 = all_projects[nextIndex2] %}
-        {% include "includes/explore-more.html" %}
+        {% if quote %}
+        <figure class="pm-quote-block">
+          <blockquote>“{{ quote }}”</blockquote>
+          {% if author %}<cite>{% if citation %}<a href="{{ citation }}" target="_blank" rel="noopener">{{ author }}</a>{% else %}{{ author }}{% endif %}</cite>{% endif %}
+        </figure>
+        {% endif %}
       </div>
+    </section>
+
+    <div class="pm-wrap pm-prose">
+      {{ content | safe }}
     </div>
+
+    {# Show the next two case studies, wrapping around #}
+    {% set all_projects = collections.animation %}
+    {% set currentIndex = -1 %}
+    {% for p in all_projects %}{% if p.url == page.url %}{% set currentIndex = loop.index0 %}{% endif %}{% endfor %}
+    {% set next1 = all_projects[(currentIndex + 1) % all_projects.length] %}
+    {% set next2 = all_projects[(currentIndex + 2) % all_projects.length] %}
+    {% include "includes/explore-more.html" %}
   </article>
 </main>
 {% include "includes/footer.html" %}

@@ -1,0 +1,44 @@
+---
+layout: "layouts/base.html"
+permalink: "/case-studies/"
+client: "Case Studies | Tifa Jade, Producer & Project Manager"
+subtitle: "Results-first case studies from a producer and project manager who has delivered 400+ branded events and campaigns for UFC, Xbox, Fortnite and Mountain Dew."
+description: "Case studies with measurable results from Tifa Jade, a creative producer and project manager."
+image: "/assets/img/projects/otg-allstars/vlcsnap-2025-02-26-19h52m03s087.webp"
+---
+
+<div class="pm no-animation">
+  <section class="pm-page-hero" data-glow>
+    <div class="pm-glow" aria-hidden="true"><span class="pm-glow__blob pm-glow__blob--a"></span><span class="pm-glow__blob pm-glow__blob--b"></span></div>
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">Case studies</p>
+      <h1>Delivered projects, with the numbers to show for it.</h1>
+      <p class="pm-lede">
+        Every project here shipped to a real audience. Each case study covers
+        the brief, how the work was run, and what it achieved.
+      </p>
+    </div>
+  </section>
+
+  <section class="pm-section" style="padding-top: 1rem">
+    <div class="pm-wrap">
+      <h2 class="pm-subhead">Featured</h2>
+      <div class="pm-grid-3">
+        {% for project in collections.animation %}
+          {% if project.data.feature == "yes" %}
+            {% include "includes/pm-case.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <h2 class="pm-subhead">More projects</h2>
+      <div class="pm-grid-3">
+        {% for project in collections.animation %}
+          {% if project.data.feature != "yes" %}
+            {% include "includes/pm-case.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>

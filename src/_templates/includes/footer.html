@@ -1,37 +1,33 @@
-<footer class="footer" id="contact">
-    <h2 class="visually-hidden">Footer</h2>
-<div class="footer__wrapper wrapper-f">
-  <!-- {% include "includes/funfacts.html" %} -->
-</div>
-
-    <div class="footer__wrapper wrapper-f two-col">
-
-      <div class="footer__info">
-        {% include "includes/contact-intro.html" %}
-             
-      {% include "includes/contact-form.html" %}
-
+<footer class="pm-footer" id="contact">
+  <div class="pm-wrap pm-footer__top">
+    <div>
+      <p class="pm-eyebrow">Let’s talk</p>
+      <h2>Hiring a producer or project manager?</h2>
+      <p class="pm-lede">
+        Tell me about the role or the project. I reply within 1–2 business
+        days with an honest next step.
+      </p>
+      <div class="pm-footer__links">
+        <a class="pm-btn pm-btn--ghost" href="mailto:hi@tifajade.com">hi@tifajade.com</a>
+        <a class="pm-btn pm-btn--ghost" href="/assets/tj_resume.pdf">Résumé (PDF)</a>
       </div>
-
-
-          
     </div>
-    {% include "includes/backtotop.html" %}
-    {% include "includes/legal.html" %}
-
-
+    <div>{% include "includes/contact-form.html" %}</div>
+  </div>
+  <div class="pm-footer__legal">
+    <div class="pm-wrap">
+      <p>&copy; <span class="currentYear"></span> Tifa Jade. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <a href="https://www.linkedin.com/in/tifajade/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:hi@tifajade.com">Email</a>
+      </nav>
+    </div>
+  </div>
 </footer>
-<script src="/app/js/fadein.js" defer></script>
+
 <script src="/app/js/darkmode.js" defer></script>
-<script src="/app/js/nav.js" defer></script>
-<script src="/app/js/footer.js" defer></script>
-<script src="/app/js/header.js" defer></script>
-
 <script src="/app/js/togglelogo.js" defer></script>
-<script src="/app/js/tooltip.js" defer></script>
-<script src="/app/js/hover.js" defer></script>
-<!-- <script src="/app/js/funfacts.js"></script> -->
-<!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
-
+<script src="/app/js/footer.js" defer></script>
+<script src="/app/js/pm-glow.js" defer></script>
 </body>
 </html>

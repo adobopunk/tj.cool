@@ -1,33 +1,6 @@
-<div class="side-by-side">
-  {% if client %}
-  <div class="details">
-    <div>
-      <p class="small"><b>Client:</b></p>
-      <p class="small">{{ client }}</p>
-    </div>
-    {% endif %} {% if agency %}
-    <div>
-      <p class="small"><b>Agency:</b></p>
-      <p class="small">{{ agency }}</p>
-    </div>
-    {% endif %} {% if length %}
-    <div>
-      <p class="small"><b>Project Length:</b></p>
-      <p class="small">{{ length }}</p>
-    </div>
-    {% endif %} {% if scope %}
-    <div>
-      <p class="small"><b>Roles:</b></p>
-      <p class="small">{{ scope }}</p>
-    </div>
-    {% endif %}
-  </div>
-  {% if quote %}
-  <div class="testimonial">
-    <blockquote class="quote">"{{ quote }}"</blockquote>
-    <cite class="author"
-      >- <a href="{{ citation }}" target="blank">{{ author }}</a></cite
-    >
-  </div>
-  {% endif %}
-</div>
+<dl class="pm-facts">
+  {% if client %}<div class="pm-fact"><dt>Client</dt><dd>{{ client }}</dd></div>{% endif %}
+  {% if agency %}<div class="pm-fact"><dt>Agency</dt><dd>{{ agency }}</dd></div>{% endif %}
+  {% if length %}<div class="pm-fact"><dt>Timeline</dt><dd>{{ length }}</dd></div>{% endif %}
+  {% if scope %}<div class="pm-fact"><dt>My role</dt><dd>{{ scope }}</dd></div>{% endif %}
+</dl>

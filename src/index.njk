@@ -1,31 +1,14 @@
 ---
-layout: "layouts/homepage.html"
-pmcss: true
+layout: "layouts/base.html"
 client: "Tifa Jade | Creative Producer & Project Manager"
-title: "Tifa Jade | Creative Producer & Project Manager"
 subtitle: "I lead complex creative projects from brief to broadcast. 10+ years and 400+ branded events for UFC, Xbox, Fortnite and Mountain Dew, seen by 100M+ viewers."
 description: "Creative Producer and Project Manager with 10+ years leading production for UFC, Xbox, Fortnite and Mountain Dew."
 ---
 
 <div class="pm no-animation">
 
-  <header class="pm-nav">
-    <div class="pm-wrap pm-nav__inner">
-      <a class="pm-nav__brand" href="/" aria-label="Tifa Jade home">
-        <img id="logo" src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-09.png" alt="Tifa Jade" width="1102" height="272" />
-      </a>
-      <ul class="pm-nav__links">
-        <li class="hide-sm"><a href="#results">Results</a></li>
-        <li class="hide-sm"><a href="#approach">Approach</a></li>
-        <li class="hide-sm"><a href="#experience">Experience</a></li>
-        <li class="hide-sm"><a href="/about/">About</a></li>
-        {% include "includes/themetoggle.html" %}
-        <li><a class="pm-btn pm-btn--sm" href="#contact">Hire TJ</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <section class="pm-hero">
+  <section class="pm-hero" data-glow>
+    <div class="pm-glow" aria-hidden="true"><span class="pm-glow__blob pm-glow__blob--a"></span><span class="pm-glow__blob pm-glow__blob--b"></span></div>
     <div class="pm-wrap">
       <p class="pm-eyebrow">Creative Producer &amp; Project Manager</p>
       <h1>I run complex creative projects from brief to <em>broadcast.</em></h1>
@@ -44,8 +27,8 @@ description: "Creative Producer and Project Manager with 10+ years leading produ
       <div class="pm-stats" role="list">
         <div class="pm-stat" role="listitem"><strong>400+</strong><span>branded events &amp; campaigns shaped</span></div>
         <div class="pm-stat" role="listitem"><strong>100M+</strong><span>viewers reached by projects I led</span></div>
+        <div class="pm-stat" role="listitem"><strong>21.1M+</strong><span>impressions for one Army National Guard esports campaign</span></div>
         <div class="pm-stat" role="listitem"><strong>10+</strong><span>years in production &amp; creative leadership</span></div>
-        <div class="pm-stat" role="listitem"><strong>$600K</strong><span>esports tournament launch delivered in 2 weeks</span></div>
       </div>
     </div>
   </section>
@@ -73,70 +56,14 @@ description: "Creative Producer and Project Manager with 10+ years leading produ
           <p class="pm-eyebrow">Selected results</p>
           <h2>Projects delivered, and what they achieved.</h2>
         </div>
-        <a class="pm-btn pm-btn--ghost" href="/animation/">All projects</a>
+        <a class="pm-btn pm-btn--ghost" href="/case-studies/">All case studies</a>
       </div>
 
       <div class="pm-cases">
-        <a class="pm-case pm-case--feature" href="/projects-animation/off-the-grid-all-stars/">
-          <div class="pm-case__img"><img src="/assets/img/projects/otg-allstars/vlcsnap-2025-02-26-19h52m03s087.webp" alt="Off The Grid: All Stars broadcast" width="1920" height="1080" loading="lazy" decoding="async" /></div>
-          <div class="pm-case__body">
-            <p class="pm-case__meta">Gunzilla Games · BoomTV · 2 weeks</p>
-            <h3>A $600K tournament for a brand-new esports franchise.</h3>
-            <p class="pm-case__result">Took Off The Grid: All Stars from kickoff to broadcast in two weeks: identity, graphics package and production for a franchise launch.</p>
-            <div class="pm-tags"><span>#LAUNCH</span><span>#ESPORTS</span><span>#TIGHT_TIMELINE</span></div>
-            <span class="pm-case__more">Read the case study &rarr;</span>
-          </div>
-        </a>
-
-        <a class="pm-case" href="/projects-animation/code-freedom-2024/">
-          <div class="pm-case__img"><img src="/assets/img/projects/code-freedom/code freedom loop.00_00_00_00.Still001.webp" alt="Code Freedom tournament graphics" width="1920" height="1080" loading="lazy" decoding="async" /></div>
-          <div class="pm-case__body">
-            <p class="pm-case__meta">US Army National Guard · BoomTV · 6 months</p>
-            <h3>Code Freedom: a brand introduced to competitive gaming.</h3>
-            <p class="pm-case__result">Six months of end-to-end delivery introducing the National Guard to the competitive gaming audience.</p>
-            <div class="pm-tags"><span>#GOVERNMENT_CLIENT</span><span>#LONG_RUNNING</span></div>
-          </div>
-        </a>
-
-        <a class="pm-case" href="/projects-animation/mountain-dew-champions-cup/">
-          <div class="pm-case__img"><img src="/assets/img/projects/mountain-dew-champions-cup/mtn dew loop.00_00_00_00.Still001.webp" alt="Mountain Dew Champion's Cup Series" width="1920" height="1080" loading="lazy" decoding="async" /></div>
-          <div class="pm-case__body">
-            <p class="pm-case__meta">Mountain Dew · BoomTV · 6 months</p>
-            <h3>Champion's Cup: a whole city of champions, designed.</h3>
-            <p class="pm-case__result">A six-month tournament series with a consistent visual world across every broadcast and asset.</p>
-            <div class="pm-tags"><span>#SERIES</span><span>#BRAND_PARTNER</span></div>
-          </div>
-        </a>
-
-        <a class="pm-case" href="/projects-animation/fortnite/">
-          <div class="pm-case__img"><img src="/assets/img/projects/fortnite-reunion/reunion loop main.00_00_00_00.Still001.webp" alt="Fortnite: The Reunion" width="1920" height="1080" loading="lazy" decoding="async" /></div>
-          <div class="pm-case__body">
-            <p class="pm-case__meta">Fortnite · BoomTV · 3 weeks</p>
-            <h3>The Reunion: called the most successful post-OG-update Fortnite event.</h3>
-            <p class="pm-case__result">A once-in-a-lifetime showdown delivered in three weeks. Coverage from Escharts named it the most successful competition since the OG update.</p>
-            <div class="pm-tags"><span>#EPIC_GAMES</span><span>#3_WEEKS</span></div>
-          </div>
-        </a>
-
-        <a class="pm-case" href="/projects-animation/intel-inspires/">
-          <div class="pm-case__img"><img src="/assets/img/projects/intel-inspires/intel-inspires_thumb.jpg" alt="Intel Inspires" width="1920" height="1080" loading="lazy" decoding="async" /></div>
-          <div class="pm-case__body">
-            <p class="pm-case__meta">Intel · American Video Game League · 8 months</p>
-            <h3>Intel Inspires: a next generation of esports talent, empowered.</h3>
-            <p class="pm-case__result">Eight months producing an ongoing program that put students and educators at the centre of the story.</p>
-            <div class="pm-tags"><span>#PROGRAM</span><span>#EDUCATION</span></div>
-          </div>
-        </a>
-
-        <a class="pm-case" href="/projects-animation/verizon/">
-          <div class="pm-case__img"><img src="/assets/img/projects/skyblock-showdown/skyblock.webp" alt="Verizon All Access Series" width="1600" height="900" loading="lazy" decoding="async" /></div>
-          <div class="pm-case__body">
-            <p class="pm-case__meta">Verizon × Xbox · BoomTV · 2 months</p>
-            <h3>Verizon All Access: competitive spirit for casual games.</h3>
-            <p class="pm-case__result">Creative direction and production for a two-brand series bringing Verizon and Xbox together.</p>
-            <div class="pm-tags"><span>#MULTI_BRAND</span><span>#XBOX</span></div>
-          </div>
-        </a>
+        {% for project in collections.featuredHome %}
+          {% set featureCard = loop.first %}
+          {% include "includes/pm-case.njk" %}
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -210,7 +137,8 @@ description: "Creative Producer and Project Manager with 10+ years leading produ
     </div>
   </section>
 
-  <section class="pm-section pm-final">
+  <section class="pm-section pm-final" data-glow>
+    <div class="pm-glow" aria-hidden="true"><span class="pm-glow__blob pm-glow__blob--a"></span><span class="pm-glow__blob pm-glow__blob--b"></span></div>
     <div class="pm-wrap">
       <p class="pm-eyebrow">Hiring?</p>
       <h2>Need someone who ships?</h2>

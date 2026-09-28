@@ -5,6 +5,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("app");
   eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
 
   // Set template formats
   eleventyConfig.setTemplateFormats(["njk", "html"]); // Include njk for Nunjucks
@@ -63,6 +64,21 @@ module.exports = function (eleventyConfig) {
         ? image
         : image && (image.jpg || image.webp);
     return site.url + encodeURI(src || "/assets/img/og-image.jpg");
+  });
+
+  // Best available still for a project's `image` (string or {webp, jpg})
+  eleventyConfig.addFilter("projectImage", function (image) {
+    const src =
+      typeof image === "string" ? image : image && (image.webp || image.jpg);
+    return src || "/assets/img/og-image.jpg";
+  });
+
+  // Curated homepage results, ordered by `homeOrder` front matter
+  eleventyConfig.addCollection("featuredHome", function (collection) {
+    return collection
+      .getFilteredByGlob("src/projects-animation/*.njk")
+      .filter((p) => p.data.homeOrder)
+      .sort((a, b) => a.data.homeOrder - b.data.homeOrder);
   });
 
   // Add index filter

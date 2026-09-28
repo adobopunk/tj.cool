@@ -1,73 +1,10 @@
-<nav class="project-navigation">
-  <section class="gallery">
-    {% if next1 or next2 %} {% if next1 %}
-    <div class="image-container">
-      <a href="{{ next1.url }}">
-        <div class="image-preview-container">
-          {% if next1.data.video %}
-          <video
-            muted
-            loop
-            playsinline
-            class="gallery__video"
-            poster="{{ next1.data.image.jpg or next1.data.image or '/assets/img/og-image.jpg' }}"
-          >
-            {% if next1data.video.webm %}
-            <source src="{{ next1.data.video.webm }}" type="video/webm" />
-            {% elif next1.data.video.mp4 %}
-            <source src="{{ next1.data.video.mp4 }}" type="video/mp4" />
-            {% elif next1.data.video %}
-            <source src="{{ next1.data.video }}" />
-            {% endif %} Your browser does not support the video tag.
-          </video>
-          {% else %}
-          <img
-            src="{{ next1.data.image.jpg or next1.data.image or '/assets/img/og-image.jpg' }}"
-            alt="Placeholder for {{ next1.data.client }}"
-            class="gallery__image"
-            loading="lazy"
-          />
-          {% endif %}
-        </div>
-        <div class="image-preview-title">
-          <h3 class="gallery__title">{{ next1.data.client }}</h3>
-        </div>
-      </a>
+<section class="pm-more pm-section">
+  <div class="pm-wrap">
+    <p class="pm-eyebrow">Keep reading</p>
+    <h2>More case studies</h2>
+    <div class="pm-cases">
+      {% if next1 %}{% set project = next1 %}{% include "includes/pm-case.njk" %}{% endif %}
+      {% if next2 %}{% set project = next2 %}{% include "includes/pm-case.njk" %}{% endif %}
     </div>
-    {% endif %} {% if next2 %}
-    <div class="image-container">
-      <a href="{{ next2.url }}">
-        <div class="image-preview-container">
-          {% if next2.data.video %}
-          <video
-            muted
-            loop
-            playsinline
-            class="gallery__video"
-            poster="{{ next2.data.image.jpg or next2.data.image or '/assets/img/og-image.jpg' }}"
-          >
-            {% if next2.data.video.webm %}
-            <source src="{{ next2.data.video.webm }}" type="video/webm" />
-            {% elif next2.data.video.mp4 %}
-            <source src="{{ next2.data.video.mp4 }}" type="video/mp4" />
-            {% elif next2.data.video %}
-            <source src="{{ next2.data.video }}" />
-            {% endif %} Your browser does not support the video tag.
-          </video>
-          {% else %}
-          <img
-            src="{{ next2.data.image.jpg or next2.data.image or '/assets/img/og-image.jpg' }}"
-            alt="Placeholder for {{ next2.data.client }}"
-            class="gallery__image"
-            loading="lazy"
-          />
-          {% endif %}
-        </div>
-        <div class="image-preview-title">
-          <h3 class="gallery__title">{{ next2.data.client }}</h3>
-        </div>
-      </a>
-    </div>
-    {% endif %} {% endif %}
-  </section>
-</nav>
+  </div>
+</section>

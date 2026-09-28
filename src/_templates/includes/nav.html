@@ -1,66 +1,29 @@
-<aside class="sidebar nav-visible">
-  <h2 class="visually-hidden">Header</h2>
-  <div class="wrapper topnav__wrapper">
-    <nav class="content">
-      <a href="/">
-        <img
-          src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-09.png"
-          alt="Tifa Jade logo"
-          class="sidebar__homelink light"
-          id="logo" width="1102" height="272" />
-        <img
-          src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png"
-          alt="Tifa Jade logo"
-          class="sidebar__homelink-alt light"
-          id="icon" width="365" height="369" />
-      </a>
-
-      <ul class="topnav__links">
-
-        <li class="topnav__link">
-          <a
-            href="/about/index.html"
-            class="topnav__link {% if page.url == '/about/index.html' %}current-page{% endif %}"
-            >About Me</a
-          >
-        </li>
-        <li class="topnav__link">
-          <a
-            href="/contact/index.html"
-            class="topnav__link {% if page.url == '/about/index.html' %}current-page{% endif %}"
-            >Connect</a
-          >
-          {% include "includes/themetoggle.html" %}
-        </li>
-
-        <li class="topnav__item">
-          <button id="menu-toggle" class="hamburger">☰</button>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</aside>
-
-<!-- Hamburger Menu -->
-<div id="hamburger-menu-overlay" class="hamburger-overlay no-animation">
-  <div class="hamburger-overlay-content no-animation">
-    <a href="/" class="back">
-      <img
-        src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png"
-        alt="Tifa Jade logo"
-        style="width: 75px"
-        class="hamburger-icon"
-        id="hamburger-icon" width="365" height="369" />
+<header class="pm-nav">
+  <div class="pm-wrap pm-nav__inner">
+    <a class="pm-nav__brand" href="/" aria-label="Tifa Jade, home">
+      <img id="logo" src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-09.png" alt="Tifa Jade" width="1102" height="272" />
     </a>
-    <nav class="menu no-animation">
-      <ul class="hamburger-links no-animation">
-        {% include "includes/links.html" %} {% include
-        "includes/themetoggle.html" %}
+    <nav aria-label="Primary">
+      <ul class="pm-nav__links">
+        <li><a href="/case-studies/"{% if page.url == '/case-studies/' %} aria-current="page"{% endif %}>Case studies</a></li>
+        <li><a href="/#approach">Approach</a></li>
+        <li><a href="/#experience">Experience</a></li>
+        <li><a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a></li>
       </ul>
     </nav>
-    {% include "includes/legal.html" %}
-    <span id="close-hamburger-menu" class="close-hamburger-overlay"
-      >&times;</span
-    >
+    <div class="pm-nav__actions">
+      {% include "includes/themetoggle.html" %}
+      <details class="pm-menu">
+        <summary>Menu</summary>
+        <ul>
+          <li><a href="/case-studies/">Case studies</a></li>
+          <li><a href="/#approach">Approach</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </details>
+      <a class="pm-btn pm-btn--sm" href="#contact">Hire TJ</a>
+    </div>
   </div>
-</div>
+</header>
