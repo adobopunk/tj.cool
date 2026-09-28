@@ -1,0 +1,396 @@
+@use "../scss/util/" as u;
+
+.topnav__wrapper {
+  position: relative;
+  width: 95%; /* Full width wrapper */
+  z-index: 100;
+
+  @include u.breakpoint-down(small) {
+    width: 100%;
+  }
+}
+
+.sidebar {
+  z-index: 1;
+  position: fixed; /* Make it relative for top positioning */
+  height: 80px;
+  top: 0; /* Fix it at the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Full width */
+  display: flex;
+  flex-direction: row; /* Layout items horizontally */
+  justify-content: center; /* Center the elements */
+  align-items: center; /* Align items vertically centered */
+  padding: 10px 20px; /* Add padding for spacing */
+  box-sizing: border-box;
+  background-color: var(
+    --pico-background-color
+  ); /* Use Pico background color */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Slight drop shadow */
+}
+
+.sidebar__homelink {
+  font-size: u.rem(24);
+  text-align: center;
+  font-family: "Ringift", "Times New ROman", serif;
+  margin-right: auto;
+  max-height: 50px;
+
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
+.sidebar__homelink-svg {
+  margin-right: auto;
+  max-height: 50px;
+  width: 100%; /* Icon size */
+  height: 50px; /* Icon size */
+
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
+
+.sidebar__homelink-alt {
+  height: 50px;
+  min-width: 50px;
+
+  @include u.breakpoint(small) {
+    display: none;
+  }
+}
+.sidebar__homelink-alt-svg {
+  margin-right: auto;
+  max-height: 50px;
+  width: 100%; /* Icon size */
+  height: 50px; /* Icon size */
+
+  @include u.breakpoint(small) {
+    display: none;
+  }
+}
+
+.sidebar__logo {
+  margin: 0 20px; /* Spacing for the logo */
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.topnav {
+  z-index: 100;
+
+  &__item {
+    position: relative;
+
+    &:hover {
+      color: var(--pico-primary);
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: row; /* Links arranged horizontally */
+    gap: 5px; /* Add spacing between links */
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__links a {
+    @include u.breakpoint-down(small) {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-align: center;
+    font-size: u.rem(12);
+    line-height: 1.5;
+    color: var(--pico-h1-color);
+
+    &:hover {
+      color: var(--pico-primary) !important;
+    }
+
+    @include u.breakpoint-down(small) {
+      font-size: u.rem(20);
+      line-height: 2;
+    }
+  }
+
+  &__socials {
+    @include u.breakpoint-down(small) {
+      display: none;
+    }
+  }
+}
+
+.mobile-hide {
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+.social {
+  display: block;
+  width: 18px; /* Icon size */
+  height: 18px; /* Icon size */
+}
+
+.logo {
+  width: clamp(100px, 10vw, 200px);
+  box-shadow: none;
+}
+
+.reveal {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.collapsible.active + .reveal {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.collapsible:after {
+  content: "+";
+  font-size: 24px;
+  margin-left: 2px;
+}
+
+.active:after {
+  content: "";
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 1); // Black background
+  background: var(--pico-background-color);
+  z-index: 15; // Ensure it appears above other overlays
+  display: none;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hamburger-overlay-content {
+  color: var(--pico-h1-color);
+  max-width: 2160px;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.hamburger-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.close-hamburger-overlay {
+  font-size: 60px;
+  color: var(--pico-primary);
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+
+  &:hover {
+    color: var(--pico-primary-hover);
+  }
+}
+
+.menu {
+  width: 100%;
+  padding: 0;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    a {
+      // color: white;
+      text-decoration: none;
+      // font-size: 24px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--pico-primary-hover);
+      }
+    }
+  }
+}
+
+.hamburger-links {
+  display: flex;
+  gap: 0px;
+  flex-direction: column;
+}
+
+.hamburger-links li {
+  padding: 5px;
+}
+.hamburger {
+  font-size: 32px;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.hamburger-description {
+  font-size: u.rem(32);
+  max-width: 32ch;
+
+  @include u.breakpoint-down(small) {
+    font-size: u.rem(24);
+  }
+}
+.topnav__link.current-page {
+  color: red;
+  font-weight: bold;
+}
+
+.hide-on-small {
+  @include u.breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.topnav__links .topnav__item .showreel {
+  @include u.breakpoint-down(small) {
+    display: none;
+  }
+}
+
+.dropdown {
+  position: relative;
+  cursor: default;
+}
+
+.topnav__item .dropdown-toggle {
+  background: transparent;
+  border: none;
+  font-size: u.rem(16);
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--pico-background-color);
+  // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 999;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  color: var(--pico-h1-color);
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: var(--pico-primary);
+  }
+}
+
+.topnav__item:hover .dropdown-menu {
+  display: block;
+}
+
+.overlay {
+  position: fixed; // Fixed position to cover the entire viewport
+  top: 0; // Align to the top
+  left: 0; // Align to the left
+  width: 100vw; // Full width
+  height: 100vh; // Full height
+  background: rgb(0, 0, 0); // Black background with slight transparency
+  z-index: 10; // Ensure it appears above other content
+  display: none; // Initially hidden
+  justify-content: center; // Center the content
+  align-items: center; // Center the content vertically
+  opacity: 0; // Start as invisible
+  transition: opacity 0.5s ease; // Transition for fade effect
+}
+.overlay-content {
+  color: rgb(0, 0, 0); // White text color
+  max-width: 2160px; // Max width for content
+  width: 90%; // Responsive width
+  margin: auto; // Center the content
+}
+
+.overlay.reelon {
+  display: flex; // Display the overlay as a flex container when active
+  opacity: 1; // Fully visible
+}
+
+.close-overlay {
+  font-size: 60px; // Increase font size of the X
+  color: var((--pico-primary)); // Change color to white
+  cursor: pointer; // Change cursor to pointer
+  position: absolute; // Position it within the overlay
+  top: 5px; // Adjust top position
+  right: 20px; // Adjust right position
+
+  &:hover {
+    color: var(--pico-primary-hover);
+  }
+}
+#showreel-overlay {
+  z-index: 1000;
+}
+
+.vimeo-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+}
+
+.iframe-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+}

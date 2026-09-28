@@ -1,0 +1,51 @@
+<section class="featured-gallery" id="featured-gallery">
+  <h2 class="section-title visually-hidden">Featured Projects</h2>
+
+  {% assign all_projects = collections.animation | sort: "feature" %} {% assign
+  featured_projects = all_projects | where: "data.feature", "yes" %} {% assign
+  non_featured_projects = all_projects | where: "data.feature", "no" %} {%
+  assign all_projects = featured_projects | concat: non_featured_projects %}
+  <div class="featured-grid">
+    {% for project in all_projects %}
+    <div class="featured-item side-by-side">
+      <div class="featured-media-container">
+        <a href="{{ project.url }}" class="featured-link">
+          {% if project.data.video %}
+          <video
+            muted
+            loop
+            playsinline
+            class="featured-media"
+            poster="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
+          >
+            <source src="{{ project.data.video }}" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <!-- Explicitly add the fallback image that will be shown on mobile -->
+          <img
+            src="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
+            alt="{{ project.data.title }}"
+            class="video-poster"
+          />
+          {% else %}
+          <img
+            src="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
+            alt="{{ project.data.title }}"
+            class="featured-media"
+            loading="lazy"
+          />
+          {% endif %}
+        </a>
+      </div>
+      <div class="featured-content">
+        <a href="{{ project.url }}" class="featured-title-link">
+          <h3 class="featured-title">{{ project.data.title }}</h3>
+        </a>
+        {% if project.data.subtitle %}
+        <p class="featured-subtitle">{{ project.data.subtitle }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

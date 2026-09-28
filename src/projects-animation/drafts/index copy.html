@@ -1,0 +1,68 @@
+---
+layout: "layouts/base.html"
+client: "Tifa Jade - Animation Portfolio"
+subtitle: "Empowering others with thoughtful motion design systems, expert 2D & 3D animation, and seasoned video editing."
+description: "Tifa Jade is an animator empowering others with thoughtful motion design systems, expert 2D & 3D animation, and seasoned video editing."
+---
+
+{% include "includes/nav.html" %}
+
+<!-- Video Background -->
+<div class="video-background">
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    poster="/assets/img/jade-poster.webp"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    "
+  >
+    <source src="/assets/img/Jade Loop.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-overlay"></div>
+</div>
+
+<div class="wrapper wrapper-home">
+  <div class="layout-main wrapper-h">
+    <div class="intro">
+      <!-- <h1>
+        Tifa Jade is an animation director empowering brands with thoughtful
+        motion design.<br />
+      </h1> -->
+      <div class="slide-container">
+        <h1 class="stagger" id="tifajade">
+          TIFA <span class="jade-hover">JADE</span>
+        </h1>
+      </div>
+      <button class="showreel important" id="showreelButton">
+        See Showreel
+      </button>
+    </div>
+
+    <div class="chevron-container">
+      <a href="#gallery" class="scroll-down">
+        <div class="chevron">&#x25BC;</div>
+      </a>
+    </div>
+    {% include "includes/gallery.html" %}
+  </div>
+</div>
+
+<div id="showreel-overlay" class="overlay">
+  <div class="overlay-content">
+    {% include "includes/reel.html" %}
+    <span class="close-overlay">&times;</span>
+  </div>
+</div>
+
+<script src="/app/js/homepage.js"></script>
+<script src="/app/js/hover.js"></script>
+<script src="/app/js/showreel.js" defer></script>

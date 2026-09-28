@@ -1,0 +1,36 @@
+{% include "includes/header.html" %}
+
+<main id="main">
+  <article>
+    <div id="top"></div>
+    {% include "includes/nav.html" %}
+    <div class="wrapper wrapper-home">
+      <div class="layout-main wrapper-m project-layout">
+        {{ content | safe }}
+        <h2>More Projects:</h2>
+        {# First, create a list of featured projects #} {% set featured_projects
+        = [] %} {% for project in collections.animation %} {% if
+        project.data.feature == "yes" %} {% set featured_projects =
+        (featured_projects.push(project), featured_projects) %} {% endif %} {%
+        endfor %} {# Then create a list of non-featured projects #} {% set
+        non_featured_projects = [] %} {% for project in collections.animation %}
+        {% if project.data.feature == "no" or not project.data.feature %} {% set
+        non_featured_projects = (non_featured_projects.push(project),
+        non_featured_projects) %} {% endif %} {% endfor %} {# Combine the two
+        lists #} {% set all_projects =
+        featured_projects.concat(non_featured_projects) %} {# Get the current
+        project's URL #} {% set currentUrl = page.url %} {% set currentIndex =
+        -1 %} {# Loop through the projects to find the current index #} {% for
+        project in all_projects %} {% if project.url == currentUrl %} {% set
+        currentIndex = loop.index0 %} {% endif %} {% endfor %} {# Set next1 and
+        next2 to always show the next two projects, wrapping around #} {% set
+        nextIndex1 = (currentIndex + 1) % all_projects.length %} {% set
+        nextIndex2 = (currentIndex + 2) % all_projects.length %} {% set next1 =
+        all_projects[nextIndex1] %} {% set next2 = all_projects[nextIndex2] %}
+        {% include "includes/explore-more.html" %}
+      </div>
+    </div>
+  </article>
+</main>
+
+{% include "includes/footer.html" %}

@@ -1,0 +1,78 @@
+@use "../scss/util/" as u;
+
+body {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.footer {
+  position: relative;
+  margin-block: u.rem(80);
+  margin-inline: u.rem(20);
+  &__legal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: u.rem(20);
+  }
+}
+
+form {
+  text-align: left;
+  margin-block-end: 10vh;
+}
+
+.layout-main {
+  min-height: 100vh;
+  margin-top: u.rem(25);
+  display: flex;
+  flex-direction: column;
+  gap: u.rem(20);
+
+  @include u.breakpoint-down(small) {
+    margin-top: u.rem(0);
+  }
+}
+
+.two-col {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+
+  @include u.breakpoint-down(medium) {
+    flex-direction: column;
+  }
+}
+.two-col > * {
+  flex: 1;
+}
+
+img {
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+.about-layout {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 2vw;
+  margin-bottom: 25px;
+
+  @include u.breakpoint(small) {
+    padding-left: clamp(100px, 10vw, 175px);
+  }
+
+  @include u.breakpoint-down(small) {
+    flex-direction: column-reverse;
+  }
+}

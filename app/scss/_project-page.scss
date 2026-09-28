@@ -1,0 +1,261 @@
+@use "../scss/util/" as u;
+
+.project {
+  li::before {
+    content: "▶ ";
+    font-size: 0.5em;
+  }
+  &__info {
+    display: flex;
+    gap: u.rem(60);
+    align-items: flex-start;
+
+    @include u.breakpoint-down(medium) {
+      flex-direction: column;
+      gap: u.rem(0);
+      align-items: flex-start;
+    }
+
+    li::before {
+      content: "▶ ";
+      font-size: 0.5em;
+    }
+  }
+
+  &__credits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    display: none;
+  }
+
+  &__info-L {
+    flex-basis: 85%;
+  }
+
+  &__info-R {
+    flex-basis: 15%;
+
+    @include u.breakpoint(medium) {
+      margin-right: u.rem(20);
+    }
+  }
+
+  &__info li {
+    font-size: 0.9rem;
+  }
+
+  &__info ul {
+    @include u.breakpoint-down(small) {
+      padding-inline-start: 0;
+    }
+  }
+
+  &__credits ul {
+    @include u.breakpoint-down(small) {
+      padding-inline-start: 0;
+    }
+  }
+
+  &__credits {
+    justify-content: space-between;
+  }
+
+  &__credits-R {
+    @include u.breakpoint(medium) {
+    }
+  }
+
+  &__credits-R li {
+    font-size: 0.9rem;
+  }
+
+  &__steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: u.rem(40);
+
+    @include u.breakpoint-down(medium) {
+      flex-direction: column;
+      gap: u.rem(10);
+    }
+
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+h2.project__step-title,
+.project-layout h2 {
+  font-size: 2rem;
+  font-size: clamp(2rem, 1.8rem + 1vw, 3rem);
+}
+
+.project-layout > img {
+  min-width: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-block: 20px;
+}
+
+.next-arrow,
+.previous-arrow {
+  width: 20px;
+  margin-inline: 10px;
+
+  @include u.breakpoint-down(small) {
+    width: 10px;
+  }
+}
+
+.project-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project-navigation .previous {
+  text-align: left;
+  font-size: u.rem(36);
+
+  @include u.breakpoint-down(small) {
+    font-size: u.rem(20);
+  }
+}
+
+.project-navigation .next {
+  font-size: u.rem(36);
+  text-align: right;
+  margin-left: auto; /* Push the next link to the right */
+
+  @include u.breakpoint-down(small) {
+    font-size: u.rem(20);
+  }
+}
+
+.project-layout {
+  p {
+    @include u.breakpoint(large) {
+      max-width: 50%;
+    }
+  }
+}
+
+.center {
+  align-self: center;
+}
+
+.side-by-side {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  margin-block-end: u.rem(20);
+
+  @include u.breakpoint-down(medium) {
+    flex-direction: column;
+  }
+  p {
+    max-width: 100% !important;
+  }
+}
+
+.side-by-side > * {
+  @include u.breakpoint(large) {
+    height: auto;
+    flex: auto;
+    width: 25%;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%; /* Makes the container full width */
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (height/width = 9/16 = 0.5625) */
+
+  @include u.breakpoint-down(medium) {
+    max-width: 100%;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.youtube-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (height/width * 100) */
+  height: 0;
+  overflow: hidden;
+}
+
+.youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.side-video {
+  padding: 28% 0 0 0;
+
+  @include u.breakpoint-down(medium) {
+    padding: 56.25% 0 0 0;
+  }
+}
+
+.context h2 {
+  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 2.3rem + 1vw, 3.5rem);
+}
+
+.contributions {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.goal {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Ohno Blazeface";
+  @include u.breakpoint(medium) {
+    // flex-direction: row;
+    // align-items: flex-start;
+    gap: u.rem(30);
+  }
+
+  @include u.breakpoint(xlarge) {
+    max-width: clamp(50%, 50%, 100%);
+  }
+
+  & * {
+    font-family: "Rethink Sans";
+  }
+}
+.testimonial {
+  // text-align: center;
+  max-width: 50ch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  margin: auto;
+}

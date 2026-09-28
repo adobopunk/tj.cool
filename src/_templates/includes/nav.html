@@ -1,0 +1,72 @@
+<aside class="sidebar nav-visible">
+  <h2 class="visually-hidden">Header</h2>
+  <div class="wrapper topnav__wrapper">
+    <nav class="content">
+      <a href="/">
+        <img
+          src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-09.png"
+          alt="Tifa Jade logo"
+          class="sidebar__homelink light"
+          id="logo"
+        />
+        <img
+          src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png"
+          alt="Tifa Jade logo"
+          class="sidebar__homelink-alt light"
+          id="icon"
+        />
+      </a>
+
+      <ul class="topnav__links">
+        <li class="topnav__item">
+          <button class="showreel">Showreel</button>
+        </li>
+
+        <li class="topnav__link">
+          <a
+            href="/about/index.html"
+            class="topnav__link {% if page.url == '/about/index.html' %}current-page{% endif %}"
+            >About Me</a
+          >
+        </li>
+        <li class="topnav__link">
+          <a
+            href="/contact/index.html"
+            class="topnav__link {% if page.url == '/about/index.html' %}current-page{% endif %}"
+            >Connect</a
+          >
+          {% include "includes/themetoggle.html" %}
+        </li>
+
+        <li class="topnav__item">
+          <button id="menu-toggle" class="hamburger">☰</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>
+
+<!-- Hamburger Menu -->
+<div id="hamburger-menu-overlay" class="hamburger-overlay no-animation">
+  <div class="hamburger-overlay-content no-animation">
+    <a href="/" class="back">
+      <img
+        src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png"
+        alt="Tifa Jade logo"
+        style="width: 75px"
+        class="hamburger-icon"
+        id="hamburger-icon"
+      />
+    </a>
+    <nav class="menu no-animation">
+      <ul class="hamburger-links no-animation">
+        {% include "includes/links.html" %} {% include
+        "includes/themetoggle.html" %}
+      </ul>
+    </nav>
+    {% include "includes/legal.html" %}
+    <span id="close-hamburger-menu" class="close-hamburger-overlay"
+      >&times;</span
+    >
+  </div>
+</div>

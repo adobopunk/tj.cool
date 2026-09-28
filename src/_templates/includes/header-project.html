@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>{{ client }} - {{ title }} | Tifa Jade, Creative Director</title>
+    <!-- SEO -->
+
+    <meta
+      name="description"
+      content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
+    />
+
+    <meta
+      property="og:title"
+      content="{{ title }} - Case Study | Tifa Jade
+    "
+    />
+    <meta
+      property="og:description"
+      content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
+    />
+    <meta property="og:url" content="{{ site.url }}{{ page.url | url }}" />
+    <meta
+      property="og:image"
+      content="{{ site.url }}{% if image %}{{ image }}{% else %}/assets/img/og-image.jpg{% endif %}"
+    />
+
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Tifa Jade" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="/assets/css/pico.jade.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <script>
+      // Check local storage for theme and set it before the page renders
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
+
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="ea3f477a-b6a7-4c4a-9b2e-25379e9fb80a"
+    ></script>
+  </head>
+  <body>
+    <a href="#main" class="visually-hidden">Skip to main content</a>
+  </body>
+</html>

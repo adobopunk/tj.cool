@@ -1,0 +1,116 @@
+@use "../scss/util/" as u;
+
+.wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.wrapper-m {
+  width: clamp(250px, 90vw, 1920px);
+  margin-block-start: 120px;
+
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
+.wrapper-h {
+  display: flex;
+  align-items: center;
+  width: clamp(250px, 90vw, 1920px);
+  margin-block-start: 120px;
+
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
+.wrapper-h-home {
+  display: flex;
+  align-items: center;
+  width: clamp(250px, 90vw, 1920px);
+
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
+
+.wrapper-a {
+  margin-block-start: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(250px, 90vw, 1080px);
+  gap: 10px;
+
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
+
+.wrapper-a-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(250px, 90vw, 1280px);
+  gap: 10px;
+
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
+
+.wrapper-f {
+  gap: 10%;
+  width: clamp(250px, 85vw, 1200px);
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
+
+.wrapper-c {
+  width: clamp(250px, 75vw, 1600px);
+  @include u.breakpoint-down(medium) {
+    width: clamp(250px, 98vw, 1080px);
+    max-width: 98%;
+  }
+}
+
+.wrapper-smaller {
+  width: clamp(400px, 50vw, 1200px);
+  margin: 0 auto;
+  @include u.breakpoint-down(medium) {
+    width: clamp(400px, 100%, 1080px);
+    max-width: 98%;
+  }
+}
+
+.wrapper-home {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+
+  @include u.breakpoint-down(small) {
+    flex-direction: column;
+  }
+}
+
+.footer__wrapper {
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.topnav__wrapper {
+  display: flex;
+  flex-direction: row;
+  @include u.breakpoint-down(small) {
+    // display: flex;
+  }
+}

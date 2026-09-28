@@ -1,0 +1,49 @@
+<section class="gallery" id="gallery">
+  <h2 class="visually-hidden">Gallery</h2>
+  {% assign featured_projects = collections.projects | where: "data.feature",
+  "yes" | sort: "date" | reverse %} {% assign non_featured_projects =
+  collections.projects | where: "data.feature", "no" | sort: "date" | reverse %}
+  {% assign sorted_projects = featured_projects | concat: non_featured_projects
+  %}
+  <!-- Combine featured and non-featured -->
+
+  {% for project in sorted_projects %}
+  <div
+    class="image-container {% if project.data.feature == 'yes' %}featured-item{% endif %}"
+  >
+    <a href="{{ project.url }}" class="video-link">
+      {% if project.data.videoID %}
+      <div class="vimeo-container-gallery">
+        <div class="iframe-wrapper-gallery">
+          <iframe
+            src="https://player.vimeo.com/video/{{ project.data.videoID }}?autoplay=1&muted=1&loop=1&dnt=1&background=1"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title="{{ project.data.title }}"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      {% else %}
+      <img
+        src="{{ project.data.image }}"
+        alt="{{ project.data.title }}"
+        class="gallery__image"
+      />
+      {% endif %}
+    </a>
+    <div class="image-title">
+      <a href="{{ project.url }}">
+        <h2
+          class="gallery__title {% if project.data.feature == 'no' %}gallery__non-featured-title{% endif %}"
+        >
+          {{ project.data.title }}
+        </h2>
+      </a>
+      <a href="{{ project.url }}">
+        <p class="gallery__subtitle">{{ project.data.subtitle }}</p>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</section>

@@ -1,0 +1,37 @@
+@use "../scss/util/" as u;
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  box-shadow: none;
+  display: block;
+  margin: 0 auto;
+  justify-self: center;
+}
+
+#theme-icon {
+  width: 30px;
+  height: 30px;
+  fill: var(--pico-primary);
+  transition: transform 0.3s ease;
+  transform: scale(0.8); /* Scale down the icon size */
+}
+
+#theme-toggle:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#theme-toggle {
+  visibility: hidden;
+}
+
+.js #theme-toggle {
+  visibility: visible;
+}
+
+#moon-icon {
+  display: none;
+}

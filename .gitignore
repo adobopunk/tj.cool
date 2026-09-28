@@ -1,0 +1,32 @@
+# === Eleventy/11ty Specific ===
+_site/          # 11ty's default output directory
+.cache/         # 11ty's cache folder
+.11ty.js        # Local 11ty config (if used)
+
+# === Dependencies ===
+node_modules/
+package-lock.json
+yarn.lock
+
+# === Build Artifacts ===
+dist/           # Alternate output dir (if not _site)
+.temp/          # Temporary files
+*.tmp
+
+# === Environment/Secrets ===
+.env
+.env.local
+.env*.local
+
+# === OS/Editor Junk ===
+.DS_Store       # macOS
+Thumbs.db       # Windows
+desktop.ini
+*.swp           # Vim swap files
+.idea/          # JetBrains IDEs
+.vscode/        # VS Code
+
+# === Logs ===
+*.log
+npm-debug.log*
+yarn-error.log

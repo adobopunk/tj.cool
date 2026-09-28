@@ -1,0 +1,20 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for page in collections.all %}
+        {% if not page.data.draft %}
+        <url>
+            <loc>{{ siteUrl }}{{ page.url | url }}</loc>
+            
+            {% if page.date %}
+            <lastmod>{{ page.date.toISOString() }}</lastmod>
+            {% endif %}
+
+            <changefreq>{{ page.data.changeFreq or "monthly" }}</changefreq>
+        </url>
+        {% endif %}
+    {% endfor %}
+</urlset>
