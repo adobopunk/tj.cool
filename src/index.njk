@@ -44,29 +44,28 @@ description: "Creative Producer and Project Manager with 12+ years leading produ
   </section>
 
   <section class="pm-trust" aria-label="Clients">
+    {# Logos live in assets/img/logos. w = display width in rem, ar = width/height.
+       Files named placeholder-*.svg are text stand-ins: swap for the real logo. #}
+    {% set logos = [
+      { file: "ufc", name: "UFC", w: 3.9, ar: 2.89 },
+      { file: "xbox", name: "Xbox", w: 4.2, ar: 3.39 },
+      { file: "placeholder-fortnite", name: "Fortnite", w: 5.4, ar: 4.4 },
+      { file: "placeholder-mountain-dew", name: "Mountain Dew", w: 5.2, ar: 3.88 },
+      { file: "intel", name: "Intel", w: 3.9, ar: 2.58 },
+      { file: "verizon", name: "Verizon", w: 5.4, ar: 4.46 },
+      { file: "porsche", name: "Porsche", w: 7.2, ar: 9.56 },
+      { file: "placeholder-army-national-guard", name: "US Army National Guard", w: 9.2, ar: 7.55 }
+    ] %}
     <div class="pm-wrap pm-trust__inner">
       <p>Delivered for</p>
       <div class="pm-marquee">
-        <ul class="pm-logos">
-          <li><span class="pm-logo" role="img" aria-label="UFC" style="--logo:url(/assets/img/logos/ufc.svg); --ar:2.89"></span></li>
-          <li><span class="pm-logo" role="img" aria-label="Xbox" style="--logo:url(/assets/img/logos/placeholder-xbox.svg); --ar:2.3"></span></li>
-          <li><span class="pm-logo" role="img" aria-label="Fortnite" style="--logo:url(/assets/img/logos/fortnite.svg); --s:1.5; --ar:0.41"></span></li>
-          <li><span class="pm-logo" role="img" aria-label="Mountain Dew" style="--logo:url(/assets/img/logos/placeholder-mountain-dew.svg); --ar:3.88"></span></li>
-          <li><span class="pm-logo" role="img" aria-label="Intel" style="--logo:url(/assets/img/logos/intel.svg); --ar:2.58"></span></li>
-          <li><span class="pm-logo" role="img" aria-label="Verizon" style="--logo:url(/assets/img/logos/verizon.svg); --s:1.35; --ar:0.83"></span></li>
-          <li><span class="pm-logo" role="img" aria-label="Porsche" style="--logo:url(/assets/img/logos/porsche.svg); --s:1.4; --ar:0.78"></span></li>
-          <li><span class="pm-logo" role="img" aria-label="US Army National Guard" style="--logo:url(/assets/img/logos/placeholder-army-national-guard.svg); --ar:7.55"></span></li>
-        </ul>
-        <ul class="pm-logos pm-logos--dup" aria-hidden="true">
-          <li><span class="pm-logo" style="--logo:url(/assets/img/logos/ufc.svg); --ar:2.89"></span></li>
-          <li><span class="pm-logo" style="--logo:url(/assets/img/logos/placeholder-xbox.svg); --ar:2.3"></span></li>
-          <li><span class="pm-logo" style="--logo:url(/assets/img/logos/fortnite.svg); --s:1.5; --ar:0.41"></span></li>
-          <li><span class="pm-logo" style="--logo:url(/assets/img/logos/placeholder-mountain-dew.svg); --ar:3.88"></span></li>
-          <li><span class="pm-logo" style="--logo:url(/assets/img/logos/intel.svg); --ar:2.58"></span></li>
-          <li><span class="pm-logo" style="--logo:url(/assets/img/logos/verizon.svg); --s:1.35; --ar:0.83"></span></li>
-          <li><span class="pm-logo" style="--logo:url(/assets/img/logos/porsche.svg); --s:1.4; --ar:0.78"></span></li>
-          <li><span class="pm-logo" style="--logo:url(/assets/img/logos/placeholder-army-national-guard.svg); --ar:7.55"></span></li>
-        </ul>
+        <div class="pm-track">
+          {% for copy in [0, 1, 2, 3] %}
+          <ul class="pm-logos"{% if copy > 0 %} aria-hidden="true"{% endif %}>
+            {% for l in logos %}<li><span class="pm-logo"{% if copy == 0 %} role="img" aria-label="{{ l.name }}"{% endif %} style="--logo:url(/assets/img/logos/{{ l.file }}.svg); --w:{{ l.w }}; --ar:{{ l.ar }}"></span></li>{% endfor %}
+          </ul>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </section>
