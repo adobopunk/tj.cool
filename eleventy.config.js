@@ -10,60 +10,29 @@ module.exports = function (eleventyConfig) {
   // Set template formats
   eleventyConfig.setTemplateFormats(["njk", "html"]); // Include njk for Nunjucks
 
+  // Published case studies (those with a headline `metric`), newest first
   eleventyConfig.addCollection("animation", function (collection) {
     return collection
       .getFilteredByGlob("src/projects-animation/*.njk")
-      .sort((a, b) => {
-        const aFeature = a.data.feature === "yes" ? 1 : 0;
-        const bFeature = b.data.feature === "yes" ? 1 : 0;
-
-        // Prioritize featured projects
-        if (aFeature !== bFeature) {
-          return bFeature - aFeature;
-        }
-
-        // If both are featured projects
-        if (aFeature && bFeature) {
-          const aOrder = a.data.order !== undefined ? a.data.order : Infinity;
-          const bOrder = b.data.order !== undefined ? b.data.order : Infinity;
-
-          if (aOrder !== bOrder) {
-            return aOrder - bOrder; // lower order first
-          }
-        }
-
-        // Fallback to date sorting (newest first)
-        const aDate = new Date(a.data.date);
-        const bDate = new Date(b.data.date);
-
-        return bDate - aDate;
-      });
+      .filter((p) => p.data.metric)
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
   });
 
-  eleventyConfig.addCollection("video", function (collection) {
-    return collection
-      .getFilteredByGlob("src/projects-video/*.njk")
-      .sort((a, b) => {
-        // First, prioritize 'featured' items
-        if (a.data.feature === "yes" && b.data.feature !== "yes") {
-          return -1; // a should come first
-        } else if (a.data.feature !== "yes" && b.data.feature === "yes") {
-          return 1; // b should come first
-        }
-        // Then, sort by date (if both have the same 'feature' value)
-        return new Date(b.data.date) - new Date(a.data.date);
-      });
-  });
-
-  // Resolve an `image` front-matter value (string or {webp, jpg}) to an
-  // absolute, URL-encoded address for og:image / twitter:image.
-  // Falls back to the default share image.
+  // Absolute, URL-encoded address for og:image / twitter:image
   eleventyConfig.addFilter("absoluteImage", function (image) {
     const src =
       typeof image === "string"
         ? image
         : image && (image.jpg || image.webp);
     return site.url + encodeURI(src || "/assets/img/og-image.jpg");
+  });
+
+  // Case studies without a headline `metric` are not published (see
+  // src/projects-animation/projects-animation.11tydata.js)
+  eleventyConfig.addPreprocessor("hide-unfeatured", "njk", (data) => {
+    if (data.page.inputPath.includes("/projects-animation/") && !data.metric) {
+      return false;
+    }
   });
 
   // Best available still for a project's `image` (string or {webp, jpg})

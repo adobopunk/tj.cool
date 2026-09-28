@@ -2,25 +2,35 @@
 {% include "includes/nav.html" %}
 <main id="main">
   <article class="pm pm-project">
-    <section class="pm-page-hero" data-glow>
-      <div class="pm-glow" aria-hidden="true"><span class="pm-glow__blob pm-glow__blob--a"></span><span class="pm-glow__blob pm-glow__blob--b"></span></div>
+    <section class="pm-page-hero pm-page-hero--media">
+      <div class="pm-hero-media" aria-hidden="true">
+        {% if video %}
+        <video autoplay muted loop playsinline preload="metadata" poster="{{ image | projectImage }}">
+          {% if video.webm %}<source src="{{ video.webm }}" type="video/webm" />{% endif %}
+          {% if video.mp4 %}<source src="{{ video.mp4 }}" type="video/mp4" />{% endif %}
+          {% if not video.webm and not video.mp4 %}<source src="{{ video }}" />{% endif %}
+        </video>
+        {% else %}
+        <img src="{{ image | projectImage }}" alt="" width="1920" height="1080" />
+        {% endif %}
+      </div>
       <div class="pm-wrap">
-        <a class="pm-crumb" href="/case-studies/">&larr; All case studies</a>
+        <a class="pm-crumb" href="/case-studies/"><span aria-hidden="true">&larr;</span> All case studies</a>
         <p class="pm-eyebrow">{{ client }}{% if agency %} · {{ agency }}{% endif %}</p>
         <h1>{{ title }}</h1>
         {% if subtitle %}<p class="pm-lede">{{ subtitle }}</p>{% endif %}
         {% if metric %}<div class="pm-hero-metric"><strong>{{ metric }}</strong><span>{{ metricLabel }}</span></div>{% endif %}
         {% include "includes/details.html" %}
-        {% if quote %}
-        <figure class="pm-quote-block">
-          <blockquote>“{{ quote }}”</blockquote>
-          {% if author %}<cite>{% if citation %}<a href="{{ citation }}" target="_blank" rel="noopener">{{ author }}</a>{% else %}{{ author }}{% endif %}</cite>{% endif %}
-        </figure>
-        {% endif %}
       </div>
     </section>
 
     <div class="pm-wrap pm-prose">
+      {% if quote %}
+      <figure class="pm-quote-block">
+        <blockquote>“{{ quote }}”</blockquote>
+        {% if author %}<cite>{% if citation %}<a href="{{ citation }}" target="_blank" rel="noopener">{{ author }}</a>{% else %}{{ author }}{% endif %}</cite>{% endif %}
+      </figure>
+      {% endif %}
       {{ content | safe }}
     </div>
 

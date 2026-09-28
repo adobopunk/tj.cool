@@ -8,8 +8,7 @@ image: "/assets/img/projects/otg-allstars/vlcsnap-2025-02-26-19h52m03s087.webp"
 ---
 
 <div class="pm no-animation">
-  <section class="pm-page-hero" data-glow>
-    <div class="pm-glow" aria-hidden="true"><span class="pm-glow__blob pm-glow__blob--a"></span><span class="pm-glow__blob pm-glow__blob--b"></span></div>
+  <section class="pm-page-hero">
     <div class="pm-wrap">
       <p class="pm-eyebrow">Case studies</p>
       <h1>Delivered projects, with the numbers to show for it.</h1>
@@ -22,21 +21,9 @@ image: "/assets/img/projects/otg-allstars/vlcsnap-2025-02-26-19h52m03s087.webp"
 
   <section class="pm-section" style="padding-top: 1rem">
     <div class="pm-wrap">
-      <h2 class="pm-subhead">Featured</h2>
       <div class="pm-grid-3">
         {% for project in collections.animation %}
-          {% if project.data.feature == "yes" %}
-            {% include "includes/pm-case.njk" %}
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      <h2 class="pm-subhead">More projects</h2>
-      <div class="pm-grid-3">
-        {% for project in collections.animation %}
-          {% if project.data.feature != "yes" %}
-            {% include "includes/pm-case.njk" %}
-          {% endif %}
+          {% include "includes/pm-case.njk" %}
         {% endfor %}
       </div>
     </div>
