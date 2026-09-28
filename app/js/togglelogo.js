@@ -9,22 +9,22 @@ document.addEventListener("DOMContentLoaded", function () {
       document.documentElement.getAttribute("data-theme") === "dark";
 
     // Update logo
-    logo.src = isDarkMode
+    if (logo) logo.src = isDarkMode
       ? "/assets/img/logo_darkmode/tifajade_logo.png"
       : "/assets/img/logo_lightmode/TifaJade-_Light_Mode-09.png";
 
     // Update main icon
-    icon.src = isDarkMode
+    if (icon) icon.src = isDarkMode
       ? "/assets/img/logo_darkmode/tifajade_icon.png"
       : "/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png";
 
     // Update hamburger icon
-    hamburgerIcon.src = isDarkMode
+    if (hamburgerIcon) hamburgerIcon.src = isDarkMode
       ? "/assets/img/logo_darkmode/tifajade_icon.png"
       : "/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png";
 
     // Update back icon
-    backIcon.src = isDarkMode
+    if (backIcon) backIcon.src = isDarkMode
       ? "/assets/img/logo_darkmode/tifajade_icon.png"
       : "/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png";
   }

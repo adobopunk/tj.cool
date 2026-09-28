@@ -1,35 +1,225 @@
 ---
 layout: "layouts/homepage.html"
-client: "Tifa Jade | Creative Producer, Digital Content Strategist"
-subtitle: "Tifa Jade is a Creative Producer and Digital Content Strategist
-leading video and animation projects for global brands."
-description: "Tifa Jade is a Creative Producer and Digital Content Strategist
-leading video and animation projects for global brands."
+pmcss: true
+client: "Tifa Jade | Creative Producer & Project Manager"
+title: "Tifa Jade | Creative Producer & Project Manager"
+subtitle: "I lead complex creative projects from brief to broadcast. 10+ years and 400+ branded events for UFC, Xbox, Fortnite and Mountain Dew, seen by 100M+ viewers."
+description: "Creative Producer and Project Manager with 10+ years leading production for UFC, Xbox, Fortnite and Mountain Dew."
 ---
 
-{% include "includes/nav.html" %}
+<div class="pm no-animation">
 
-<div id="scroll-point" class="wrapper wrapper-home">
-  <div class="layout-main wrapper-h">
-    <div class="intro-text">
-      <div class="side-by-side">
-        <div>
-          <h1 class="about__title visually-hidden">Tifa Jade</h1>
-          <h2 class="title">
-            Multidisciplinary Creative Director, Motion Designer, Web Developer,
-            Filmmaker, Storyteller.
-          </h2>
-          <p>
-            A professional filmmaker of 10+ years, telling stories that help
-            brands reach millions. Think we'd work well together?
-            <a href="/contact">Let's talk!</a>
-          </p>
-        </div>
+  <header class="pm-nav">
+    <div class="pm-wrap pm-nav__inner">
+      <a class="pm-nav__brand" href="/" aria-label="Tifa Jade home">
+        <img id="logo" src="/assets/img/logo_lightmode/TifaJade-_Light_Mode-09.png" alt="Tifa Jade" width="1102" height="272" />
+      </a>
+      <ul class="pm-nav__links">
+        <li class="hide-sm"><a href="#results">Results</a></li>
+        <li class="hide-sm"><a href="#approach">Approach</a></li>
+        <li class="hide-sm"><a href="#experience">Experience</a></li>
+        <li class="hide-sm"><a href="/about/">About</a></li>
+        {% include "includes/themetoggle.html" %}
+        <li><a class="pm-btn pm-btn--sm" href="#contact">Hire TJ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="pm-hero">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">Creative Producer &amp; Project Manager</p>
+      <h1>I run complex creative projects from brief to <em>broadcast.</em></h1>
+      <p class="pm-lede">
+        10+ years leading production for UFC, Xbox, Fortnite and Mountain Dew.
+        I keep scope, schedule and stakeholders aligned so big ideas actually
+        ship, and land with audiences.
+      </p>
+      <div class="pm-cta-row">
+        <a class="pm-btn" href="#contact">Start a conversation &rarr;</a>
+        <a class="pm-btn pm-btn--ghost" href="#results">See the results</a>
+        <a class="pm-btn pm-btn--ghost" href="/assets/tj_resume.pdf">Résumé (PDF)</a>
       </div>
+      <p class="pm-hero__note">Open to producer &amp; project management roles</p>
 
-      <div class="intro" id="animation">
-        {% include "includes/gallery.html" %}
+      <div class="pm-stats" role="list">
+        <div class="pm-stat" role="listitem"><strong>400+</strong><span>branded events &amp; campaigns shaped</span></div>
+        <div class="pm-stat" role="listitem"><strong>100M+</strong><span>viewers reached by projects I led</span></div>
+        <div class="pm-stat" role="listitem"><strong>10+</strong><span>years in production &amp; creative leadership</span></div>
+        <div class="pm-stat" role="listitem"><strong>$600K</strong><span>esports tournament launch delivered in 2 weeks</span></div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="pm-trust" aria-label="Clients">
+    <div class="pm-wrap">
+      <p>Delivered for</p>
+      <ul>
+        <li>UFC</li>
+        <li>Xbox</li>
+        <li>Fortnite</li>
+        <li>Mountain Dew</li>
+        <li>Intel</li>
+        <li>Verizon</li>
+        <li>Porsche</li>
+        <li>US Army National Guard</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pm-section" id="results">
+    <div class="pm-wrap">
+      <div class="pm-results__head">
+        <div>
+          <p class="pm-eyebrow">Selected results</p>
+          <h2>Projects delivered, and what they achieved.</h2>
+        </div>
+        <a class="pm-btn pm-btn--ghost" href="/animation/">All projects</a>
+      </div>
+
+      <div class="pm-cases">
+        <a class="pm-case pm-case--feature" href="/projects-animation/off-the-grid-all-stars/">
+          <div class="pm-case__img"><img src="/assets/img/projects/otg-allstars/vlcsnap-2025-02-26-19h52m03s087.webp" alt="Off The Grid: All Stars broadcast" width="1920" height="1080" loading="lazy" decoding="async" /></div>
+          <div class="pm-case__body">
+            <p class="pm-case__meta">Gunzilla Games · BoomTV · 2 weeks</p>
+            <h3>A $600K tournament for a brand-new esports franchise.</h3>
+            <p class="pm-case__result">Took Off The Grid: All Stars from kickoff to broadcast in two weeks: identity, graphics package and production for a franchise launch.</p>
+            <div class="pm-tags"><span>#LAUNCH</span><span>#ESPORTS</span><span>#TIGHT_TIMELINE</span></div>
+            <span class="pm-case__more">Read the case study &rarr;</span>
+          </div>
+        </a>
+
+        <a class="pm-case" href="/projects-animation/code-freedom-2024/">
+          <div class="pm-case__img"><img src="/assets/img/projects/code-freedom/code freedom loop.00_00_00_00.Still001.webp" alt="Code Freedom tournament graphics" width="1920" height="1080" loading="lazy" decoding="async" /></div>
+          <div class="pm-case__body">
+            <p class="pm-case__meta">US Army National Guard · BoomTV · 6 months</p>
+            <h3>Code Freedom: a brand introduced to competitive gaming.</h3>
+            <p class="pm-case__result">Six months of end-to-end delivery introducing the National Guard to the competitive gaming audience.</p>
+            <div class="pm-tags"><span>#GOVERNMENT_CLIENT</span><span>#LONG_RUNNING</span></div>
+          </div>
+        </a>
+
+        <a class="pm-case" href="/projects-animation/mountain-dew-champions-cup/">
+          <div class="pm-case__img"><img src="/assets/img/projects/mountain-dew-champions-cup/mtn dew loop.00_00_00_00.Still001.webp" alt="Mountain Dew Champion's Cup Series" width="1920" height="1080" loading="lazy" decoding="async" /></div>
+          <div class="pm-case__body">
+            <p class="pm-case__meta">Mountain Dew · BoomTV · 6 months</p>
+            <h3>Champion's Cup: a whole city of champions, designed.</h3>
+            <p class="pm-case__result">A six-month tournament series with a consistent visual world across every broadcast and asset.</p>
+            <div class="pm-tags"><span>#SERIES</span><span>#BRAND_PARTNER</span></div>
+          </div>
+        </a>
+
+        <a class="pm-case" href="/projects-animation/fortnite/">
+          <div class="pm-case__img"><img src="/assets/img/projects/fortnite-reunion/reunion loop main.00_00_00_00.Still001.webp" alt="Fortnite: The Reunion" width="1920" height="1080" loading="lazy" decoding="async" /></div>
+          <div class="pm-case__body">
+            <p class="pm-case__meta">Fortnite · BoomTV · 3 weeks</p>
+            <h3>The Reunion: called the most successful post-OG-update Fortnite event.</h3>
+            <p class="pm-case__result">A once-in-a-lifetime showdown delivered in three weeks. Coverage from Escharts named it the most successful competition since the OG update.</p>
+            <div class="pm-tags"><span>#EPIC_GAMES</span><span>#3_WEEKS</span></div>
+          </div>
+        </a>
+
+        <a class="pm-case" href="/projects-animation/intel-inspires/">
+          <div class="pm-case__img"><img src="/assets/img/projects/intel-inspires/intel-inspires_thumb.jpg" alt="Intel Inspires" width="1920" height="1080" loading="lazy" decoding="async" /></div>
+          <div class="pm-case__body">
+            <p class="pm-case__meta">Intel · American Video Game League · 8 months</p>
+            <h3>Intel Inspires: a next generation of esports talent, empowered.</h3>
+            <p class="pm-case__result">Eight months producing an ongoing program that put students and educators at the centre of the story.</p>
+            <div class="pm-tags"><span>#PROGRAM</span><span>#EDUCATION</span></div>
+          </div>
+        </a>
+
+        <a class="pm-case" href="/projects-animation/verizon/">
+          <div class="pm-case__img"><img src="/assets/img/projects/skyblock-showdown/skyblock.webp" alt="Verizon All Access Series" width="1600" height="900" loading="lazy" decoding="async" /></div>
+          <div class="pm-case__body">
+            <p class="pm-case__meta">Verizon × Xbox · BoomTV · 2 months</p>
+            <h3>Verizon All Access: competitive spirit for casual games.</h3>
+            <p class="pm-case__result">Creative direction and production for a two-brand series bringing Verizon and Xbox together.</p>
+            <div class="pm-tags"><span>#MULTI_BRAND</span><span>#XBOX</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section pm-band" aria-labelledby="proof">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">Proof</p>
+      <h2 id="proof">What partners and press say.</h2>
+      <div class="pm-quotes">
+        <blockquote class="pm-quote">
+          <p>“Looking at the Fortnite competitions held after the mind-blowing OG update’s release, The Reunion featuring Fortnite is easily the most successful.”</p>
+          <cite>Escharts · <a href="https://escharts.com/news/reunion-featuring-fortnite-recap" target="_blank" rel="noopener">Fortnite: The Reunion</a></cite>
+        </blockquote>
+        <blockquote class="pm-quote">
+          <p>“Boom has been the best… they have my back all the time. Thank you so much for allowing me to do this.”</p>
+          <cite>Chica · <a href="https://clips.twitch.tv/ThankfulAntediluvianChickpeaUncleNox-uYrudraJKteRsm5S" target="_blank" rel="noopener">Chica Invitational</a></cite>
+        </blockquote>
+        <blockquote class="pm-quote">
+          <p>“Incredible to meet students so engaged in their esports programs and meeting all of the educators supporting their students’ endeavors.”</p>
+          <cite>Aaron Bellot, Remnants · <a href="https://www.linkedin.com/feed/update/urn:li:activity:7058836513538666496/" target="_blank" rel="noopener">Intel Inspires</a></cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section" id="approach">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">How I work</p>
+      <h2>I find the problem before I pick the plan.</h2>
+      <p class="pm-lede">Every project starts by learning how the team and the client operate, then scoping what to deliver first. No surprises halfway through.</p>
+      <div class="pm-steps">
+        <div class="pm-step"><span class="pm-step__n">01</span><h3>Scope</h3><p>Clarify goals, stakeholders, constraints and what “done” looks like, before anyone opens a timeline.</p></div>
+        <div class="pm-step"><span class="pm-step__n">02</span><h3>Plan</h3><p>Map deliverables, owners, dependencies and risks so approvals and hand-offs are never a mystery.</p></div>
+        <div class="pm-step"><span class="pm-step__n">03</span><h3>Produce</h3><p>Run the day-to-day: unblock the team, protect quality and keep clients informed as work moves.</p></div>
+        <div class="pm-step"><span class="pm-step__n">04</span><h3>Deliver</h3><p>Ship on the date, close out cleanly and capture what to repeat on the next one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section" id="experience" style="padding-top:0">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">Experience</p>
+      <h2>Ten years, from local TV to global brands.</h2>
+      <div class="pm-xp">
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">BoomTV</div>
+          <div class="pm-xp__role">Creative Producer &amp; Animation Director</div>
+          <p class="pm-xp__what">Shaped creative identities for 400+ branded events and campaigns for gaming and tech partners including Xbox, Fortnite, Mountain Dew, Intel and Riot Games. Work seen by 100M+ viewers.</p>
+        </div>
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">Tiny Pond &amp; In Queue</div>
+          <div class="pm-xp__role">Founder / Creative Lead</div>
+          <p class="pm-xp__what">Lead creative projects through my studio and design and produce esports events for an independent gaming events brand.</p>
+        </div>
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">UFC</div>
+          <div class="pm-xp__role">Post Producer &amp; Motion Designer</div>
+          <p class="pm-xp__what">Four years developing promos for Pay-Per-View events and leading creative and post-production for flagship programming and global partners.</p>
+        </div>
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">Impact Gaming</div>
+          <div class="pm-xp__role">Creative Director</div>
+          <p class="pm-xp__what">Managed end-to-end production for marketing initiatives, including the flagship documentary series Impact Inspire.</p>
+        </div>
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">KNDU (NBC)</div>
+          <div class="pm-xp__role">Creative Services Director</div>
+          <p class="pm-xp__what">Led creative for an NBC affiliate, working directly with local businesses on campaigns and commercials. Pitched and solo-produced a regional documentary series.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section pm-final">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">Hiring?</p>
+      <h2>Need someone who ships?</h2>
+      <p class="pm-lede">Tell me about the role or the project. I’ll reply within 1–2 business days with an honest next step.</p>
+      <div class="pm-cta-row">
+        <a class="pm-btn pm-btn--light" href="#contact">Start a conversation &rarr;</a>
+        <a class="pm-btn pm-btn--ghost" href="/assets/tj_resume.pdf">Download résumé</a>
+      </div>
+    </div>
+  </section>
+
 </div>
