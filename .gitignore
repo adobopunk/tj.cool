@@ -1,7 +1,7 @@
 # === Eleventy/11ty Specific ===
-_site/          # 11ty's default output directory
-.cache/         # 11ty's cache folder
-.11ty.js        # Local 11ty config (if used)
+_site/
+.cache/
+.11ty.js
 
 # === Dependencies ===
 node_modules/
@@ -9,8 +9,8 @@ package-lock.json
 yarn.lock
 
 # === Build Artifacts ===
-dist/           # Alternate output dir (if not _site)
-.temp/          # Temporary files
+dist/
+.temp/
 *.tmp
 
 # === Environment/Secrets ===
@@ -19,12 +19,12 @@ dist/           # Alternate output dir (if not _site)
 .env*.local
 
 # === OS/Editor Junk ===
-.DS_Store       # macOS
-Thumbs.db       # Windows
+.DS_Store
+Thumbs.db
 desktop.ini
-*.swp           # Vim swap files
-.idea/          # JetBrains IDEs
-.vscode/        # VS Code
+*.swp
+.idea/
+.vscode/
 
 # === Logs ===
 *.log

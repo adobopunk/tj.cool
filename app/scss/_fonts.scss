@@ -2,21 +2,22 @@
 
 @font-face {
   font-family: "Parisienne";
-  src: url("/assets/fonts/Parisienne/Parisienne-regular.woff2") format("woff2"),
-    url("/assets/fontsParisienne/Parisienne-regular.woff") format("woff"),
-    url("/assets/fontParisienne/Parisienne-regular.ttf") format("truetype");
+  src: url("/assets/fonts/Parisienne/Parisienne-Regular.woff2") format("woff2"),
+    url("/assets/fonts/Parisienne/Parisienne-Regular.woff") format("woff"),
+    url("/assets/fonts/Parisienne/Parisienne-Regular.ttf") format("truetype");
 
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Ohno Blazeface";
-  src: url("/assets/fonts/OhnoBlazeface/Ohno\ Blazeface\ 16\ Point.ttf") format
-    ("truetype");
+  src: url("/assets/fonts/OhnoBlazeface/Ohno\ Blazeface\ 16\ Point.ttf") format("truetype");
 
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -27,15 +28,17 @@
     url("/assets/fonts/Rethink-Sans/RethinkSans-Regular.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Hahmlet", serif;
-  src: url("/assets/fonts/hahmlet/Hahmlet-Regular.woff2") format("woff2"),
-    url("/assets/fonts/hahmlet/Hahmlet-Regular.woff") format("woff"),
-    url("/assets/fonts/hahmlet/Hahmlet-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Hahmlet/Hahmlet-Regular.woff2") format("woff2"),
+    url("/assets/fonts/Hahmlet/Hahmlet-Regular.woff") format("woff"),
+    url("/assets/fonts/Hahmlet/Hahmlet-Regular.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {

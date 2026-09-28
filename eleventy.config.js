@@ -1,11 +1,10 @@
+const site = require("./src/_data/site.json");
+
 module.exports = function (eleventyConfig) {
   // Copy assets
   eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy("fonts");
-  eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("app");
   eleventyConfig.addPassthroughCopy("robots.txt");
-  eleventyConfig.addPassthroughCopy("pdf");
 
   // Set template formats
   eleventyConfig.setTemplateFormats(["njk", "html"]); // Include njk for Nunjucks
@@ -55,6 +54,17 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  // Resolve an `image` front-matter value (string or {webp, jpg}) to an
+  // absolute, URL-encoded address for og:image / twitter:image.
+  // Falls back to the default share image.
+  eleventyConfig.addFilter("absoluteImage", function (image) {
+    const src =
+      typeof image === "string"
+        ? image
+        : image && (image.jpg || image.webp);
+    return site.url + encodeURI(src || "/assets/img/og-image.jpg");
+  });
+
   // Add index filter
   eleventyConfig.addFilter("index", function (array, value) {
     return array.indexOf(value);
@@ -80,8 +90,5 @@ module.exports = function (eleventyConfig) {
       includes: "_templates",
     },
     templateFormats: ["njk", "html"],
-    data: {
-      siteUrl: "https://tifajade.com",
-    },
   };
 };

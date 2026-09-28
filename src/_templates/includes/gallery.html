@@ -14,7 +14,7 @@
           class="gallery__video"
           poster="{{ project.data.image.webp | default: project.data.image.jpg | default: project.data.image | default: '/assets/img/og-image.jpg' }}"
         >
-          {% if project.video.webm %}
+          {% if project.data.video.webm %}
 
           <source
             data-src="{{ project.data.video.webm | default: project.data.video.mp4 | default: project.data.video }}"

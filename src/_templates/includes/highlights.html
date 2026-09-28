@@ -15,21 +15,23 @@
             muted
             loop
             playsinline
+            preload="none"
             class="featured-media"
-            poster="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
+            poster="{{ project.data.image.webp | default: project.data.image.jpg | default: project.data.image | default: '/assets/img/og-image.jpg' }}"
           >
-            <source src="{{ project.data.video }}" type="video/mp4" />
+            <source src="{{ project.data.video.mp4 | default: project.data.video.webm | default: project.data.video }}" />
             Your browser does not support the video tag.
           </video>
           <!-- Explicitly add the fallback image that will be shown on mobile -->
           <img
-            src="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
+            src="{{ project.data.image.webp | default: project.data.image.jpg | default: project.data.image | default: '/assets/img/og-image.jpg' }}"
             alt="{{ project.data.title }}"
             class="video-poster"
+            loading="lazy"
           />
           {% else %}
           <img
-            src="{{ project.data.image | default: '/assets/img/og-image.jpg' }}"
+            src="{{ project.data.image.webp | default: project.data.image.jpg | default: project.data.image | default: '/assets/img/og-image.jpg' }}"
             alt="{{ project.data.title }}"
             class="featured-media"
             loading="lazy"
