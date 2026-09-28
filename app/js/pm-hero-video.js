@@ -1,5 +1,5 @@
 // Homepage hero video (Bunny Stream embed) used as a muted background.
-// - loops before the last 3 seconds of the video
+// - loops before the last 4 seconds of the video
 // - pauses when the hero scrolls out of view
 // - skipped entirely for reduced-motion and Save-Data visitors
 (function () {
@@ -13,7 +13,7 @@
     return;
   }
 
-  const TAIL = 3; // seconds to cut off the end
+  const TAIL = 4; // seconds to cut off the end
 
   const script = document.createElement("script");
   script.src = "https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js";
