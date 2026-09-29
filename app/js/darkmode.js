@@ -20,11 +20,20 @@
     switches.forEach((el) => el.setAttribute("aria-checked", String(theme === "dark")));
   }
 
-  apply(saved() || "dark");
+  let chosen = saved();
+  apply(chosen || "dark");
+
+  // Live-reload or DOM patching can rewrite <html> and drop data-theme, which
+  // would fall back to the light styles. Put the intended theme back.
+  new MutationObserver(() => {
+    const want = chosen || "dark";
+    if (root.getAttribute("data-theme") !== want) apply(want);
+  }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
 
   switches.forEach((el) => {
     el.addEventListener("click", () => {
       const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      chosen = next;
       try {
         localStorage.setItem("theme", next);
       } catch (e) {}

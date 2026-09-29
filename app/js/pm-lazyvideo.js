@@ -32,7 +32,7 @@
   const io = new IntersectionObserver(
     (entries) =>
       entries.forEach((e) => (e.isIntersecting ? play(e.target) : e.target.pause())),
-    { rootMargin: "200px 0px" }
+    { rootMargin: "600px 0px" }
   );
   vids.forEach((v) => io.observe(v));
 })();
