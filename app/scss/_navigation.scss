@@ -35,6 +35,7 @@
   font-family: "Ringift", "Times New ROman", serif;
   margin-right: auto;
   max-height: 50px;
+  width: auto;
 
   @include u.breakpoint-down(small) {
     display: none;
@@ -53,6 +54,7 @@
 
 .sidebar__homelink-alt {
   height: 50px;
+  width: auto;
   min-width: 50px;
 
   @include u.breakpoint(small) {
@@ -286,12 +288,6 @@ nav {
   }
 }
 
-.topnav__links .topnav__item .showreel {
-  @include u.breakpoint-down(small) {
-    display: none;
-  }
-}
-
 .dropdown {
   position: relative;
   cursor: default;
@@ -333,48 +329,6 @@ nav {
 
 .topnav__item:hover .dropdown-menu {
   display: block;
-}
-
-.overlay {
-  position: fixed; // Fixed position to cover the entire viewport
-  top: 0; // Align to the top
-  left: 0; // Align to the left
-  width: 100vw; // Full width
-  height: 100vh; // Full height
-  background: rgb(0, 0, 0); // Black background with slight transparency
-  z-index: 10; // Ensure it appears above other content
-  display: none; // Initially hidden
-  justify-content: center; // Center the content
-  align-items: center; // Center the content vertically
-  opacity: 0; // Start as invisible
-  transition: opacity 0.5s ease; // Transition for fade effect
-}
-.overlay-content {
-  color: rgb(0, 0, 0); // White text color
-  max-width: 2160px; // Max width for content
-  width: 90%; // Responsive width
-  margin: auto; // Center the content
-}
-
-.overlay.reelon {
-  display: flex; // Display the overlay as a flex container when active
-  opacity: 1; // Fully visible
-}
-
-.close-overlay {
-  font-size: 60px; // Increase font size of the X
-  color: var((--pico-primary)); // Change color to white
-  cursor: pointer; // Change cursor to pointer
-  position: absolute; // Position it within the overlay
-  top: 5px; // Adjust top position
-  right: 20px; // Adjust right position
-
-  &:hover {
-    color: var(--pico-primary-hover);
-  }
-}
-#showreel-overlay {
-  z-index: 1000;
 }
 
 .vimeo-container {

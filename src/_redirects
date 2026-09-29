@@ -1,0 +1,12 @@
+# Old slugs -> new PM-focused structure
+/animation            /case-studies/          301
+/animation/*          /case-studies/          301
+/projects             /case-studies/          301
+/projects/*           /case-studies/          301
+/projects-animation/:slug  /case-studies/:slug/  301
+/projects-animation/:slug/  /case-studies/:slug/  301
+/highlights           /case-studies/          301
+/video                /case-studies/          301
+/videography          /                       301
+/showreel             /                       301
+/about-old            /about/                 301

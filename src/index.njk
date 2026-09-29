@@ -1,0 +1,210 @@
+---
+layout: "layouts/base.html"
+client: "TJ Lien: Creative Director & Project Manager | Gaming & Esports"
+subtitle: "I lead complex creative projects from brief to broadcast. 12+ years and 100+ branded events for UFC, Xbox, Fortnite and Mountain Dew, seen by 100M+ viewers."
+description: "Creative director and project manager with 12+ years leading gaming, esports and broadcast projects for UFC, Xbox, Fortnite and Activision. See the results."
+---
+
+<div class="pm no-animation">
+
+  <section class="pm-hero pm-hero--video">
+    <div class="pm-hero-clip">
+    <div class="pm-hero-media pm-hero-media--video" aria-hidden="true">
+      <div class="pm-hero-video">
+        <iframe id="hero-video" title="" tabindex="-1" loading="eager"
+          src="https://iframe.mediadelivery.net/embed/418879/c3060459-276c-44c7-a595-693bcadfdab8?autoplay=true&amp;loop=false&amp;muted=true&amp;preload=true&amp;responsive=true"
+          allow="autoplay; encrypted-media"></iframe>
+      </div>
+    </div>
+    </div>
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">Creative director and project manager for gaming, esports and live broadcast.</p>
+      <h1>I run complex creative projects from brief to <em>broadcast.</em></h1>
+      <p class="pm-lede">
+        12+ years leading production for UFC, Xbox, Fortnite and Mountain Dew.
+        I keep scope, schedule and stakeholders aligned so big ideas actually
+        ship, and land with audiences.
+      </p>
+      <div class="pm-cta-row">
+        <a class="pm-btn" href="#contact">Start a conversation &rarr;</a>
+        <a class="pm-btn pm-btn--ghost" href="#results">See the results</a>
+        <a class="pm-btn pm-btn--ghost" href="/assets/tj_resume.pdf">Résumé (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-stats-section">
+    <div class="pm-wrap">
+      <div class="pm-stats" role="list">
+        <div class="pm-stat" role="listitem"><strong>100+</strong><span>branded events &amp; campaigns shaped</span></div>
+        <div class="pm-stat" role="listitem"><strong>100M+</strong><span>viewers reached by projects I led</span></div>
+        <div class="pm-stat" role="listitem"><strong>21.1M+</strong><span>impressions on one Army National Guard campaign</span></div>
+        <div class="pm-stat" role="listitem"><strong>12+</strong><span>years in production &amp; creative leadership</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-trust" aria-label="Clients">
+    {# Logos live in assets/img/logos. w = display width in rem, ar = width/height.
+       Files named placeholder-*.svg are text stand-ins: swap for the real logo. #}
+    {% set logos = [
+      { file: "placeholder-activision", name: "Activision", w: 6.6, ar: 5.5 },
+      { file: "placeholder-cookierun", name: "CookieRun", w: 6.0, ar: 4.95 },
+      { file: "ufc", name: "UFC", w: 3.9, ar: 2.89 },
+      { file: "xbox", name: "Xbox", w: 4.2, ar: 3.39 },
+      { file: "placeholder-fortnite", name: "Fortnite", w: 5.4, ar: 4.4 },
+      { file: "placeholder-mountain-dew", name: "Mountain Dew", w: 5.2, ar: 3.88 },
+      { file: "intel", name: "Intel", w: 3.9, ar: 2.58 },
+      { file: "verizon", name: "Verizon", w: 5.4, ar: 4.46 },
+      { file: "porsche", name: "Porsche", w: 7.2, ar: 9.56 },
+      { file: "placeholder-army-national-guard", name: "US Army National Guard", w: 9.2, ar: 7.55 }
+    ] %}
+    <div class="pm-wrap pm-trust__inner">
+      <p>Delivered for</p>
+      <div class="pm-marquee">
+        <div class="pm-track">
+          {% for copy in [0, 1, 2, 3] %}
+          <ul class="pm-logos"{% if copy > 0 %} aria-hidden="true"{% endif %}>
+            {% for l in logos %}<li><span class="pm-logo"{% if copy == 0 %} role="img" aria-label="{{ l.name }}"{% endif %} style="--logo:url(/assets/img/logos/{{ l.file }}.svg); --w:{{ l.w }}; --ar:{{ l.ar }}"></span></li>{% endfor %}
+          </ul>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section" id="results">
+    <div class="pm-wrap">
+      <div class="pm-results__head">
+        <div>
+          <p class="pm-eyebrow">Results that speak for themselves</p>
+          <h2>Real projects and the impact they had.</h2>
+        </div>
+      </div>
+
+      <div class="pm-cases">
+        {% for project in collections.featuredHome %}
+          {% set featureCard = loop.first %}
+          {% include "includes/pm-case.njk" %}
+        {% endfor %}
+      </div>
+
+      <div class="pm-results__more">
+        <a class="pm-btn pm-btn--ghost" href="/case-studies/">More case studies</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section pm-band" aria-labelledby="proof">
+    <div class="pm-wrap">
+      <h2 id="proof">What partners and press say.</h2>
+      <div class="pm-quotes">
+        <blockquote class="pm-quote">
+          <p>“Looking at the Fortnite competitions held after the mind-blowing OG update’s release, The Reunion featuring Fortnite is easily the most successful.”</p>
+          <cite>Escharts · <a href="https://escharts.com/news/reunion-featuring-fortnite-recap" target="_blank" rel="noopener">Fortnite: The Reunion</a></cite>
+        </blockquote>
+        <blockquote class="pm-quote">
+          <p>“Boom has been the best… they have my back all the time. Thank you so much for allowing me to do this.”</p>
+          <cite>Chica · <a href="https://clips.twitch.tv/ThankfulAntediluvianChickpeaUncleNox-uYrudraJKteRsm5S" target="_blank" rel="noopener">Chica Invitational</a></cite>
+        </blockquote>
+        <blockquote class="pm-quote">
+          <p>“Incredible to meet students so engaged in their esports programs and meeting all of the educators supporting their students’ endeavors.”</p>
+          <cite>Aaron Bellot, Remnants · <a href="https://www.linkedin.com/feed/update/urn:li:activity:7058836513538666496/" target="_blank" rel="noopener">Intel Inspires</a></cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section" id="approach">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">How I work</p>
+      <h2>I find the problem before I pick the plan.</h2>
+      <p class="pm-lede">Clear scope up front, a creative director who has done the hands-on work, and no surprises halfway through.</p>
+      <div class="pm-steps">
+        <div class="pm-step"><span class="pm-step__n">01</span><h3>Scope</h3><p>Goals, stakeholders and what “done” looks like.</p></div>
+        <div class="pm-step"><span class="pm-step__n">02</span><h3>Plan</h3><p>Deliverables, owners and risks, tracked in tools I build.</p></div>
+        <div class="pm-step"><span class="pm-step__n">03</span><h3>Produce</h3><p>Unblock the team and keep feedback in one place.</p></div>
+        <div class="pm-step"><span class="pm-step__n">04</span><h3>Deliver</h3><p>Ship on the date and capture what to repeat.</p></div>
+      </div>
+
+      <div class="pm-features">
+        <div class="pm-feature">
+          <div>
+            <h3>Fewer revisions, faster teams.</h3>
+            <p>A decade of directing, editing and animating means clear briefs and precise feedback, so assets need less rework.</p>
+          </div>
+          <div class="pm-feature__media"><div class="pm-ph" role="img" aria-label="Placeholder image"><div><strong>Image placeholder</strong>Creative work in progress</div></div></div>
+        </div>
+        <div class="pm-feature">
+          <div>
+            <h3>Feedback that’s easy to give.</h3>
+            <p>My own review tool keeps frame-accurate comments, versions and approvals in one place.</p>
+          </div>
+          <div class="pm-feature__media"><div class="pm-ph" role="img" aria-label="Placeholder image"><div><strong>Image placeholder</strong>Video review tool screenshot</div></div></div>
+        </div>
+        <div class="pm-feature">
+          <div>
+            <h3>Fluent in gaming and its audiences.</h3>
+            <p>100+ branded events and experiential tournaments for Xbox, Fortnite and Mountain Dew.</p>
+          </div>
+          <div class="pm-feature__media"><div class="pm-ph" role="img" aria-label="Placeholder image"><div><strong>Image placeholder</strong>Tournament or live event</div></div></div>
+        </div>
+        <div class="pm-feature">
+          <div>
+            <h3>Tools built around your team.</h3>
+            <p>Trackers, dashboards and workflows that fit the project instead of a template.</p>
+          </div>
+          <div class="pm-feature__media"><div class="pm-ph" role="img" aria-label="Placeholder image"><div><strong>Image placeholder</strong>Project management tool screenshot</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section" id="experience" style="padding-top:0">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">12 years of experience</p>
+      <h2>From grassroots startups to global brands.</h2>
+      <div class="pm-xp">
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">AMG<small>Aftershock Media Group</small></div>
+          <div class="pm-xp__role">Project Manager, experiential marketing campaigns</div>
+          <p class="pm-xp__what">Placeholder: managing experiential marketing campaigns from scope to delivery. Add scope, clients and results here.</p>
+        </div>
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">In Queue<small>Worker-owned Marketing Expertise</small></div>
+          <div class="pm-xp__role">Founder / Creative Lead</div>
+          <p class="pm-xp__what">Lead creative projects through my studio and design and produce esports events for an independent gaming events brand.</p>
+        </div>
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">BoomTV<small>Marketing Startup</small></div>
+          <div class="pm-xp__role">Creative Producer &amp; Animation Director</div>
+          <p class="pm-xp__what">Shaped creative identities for 100+ branded events and campaigns for gaming and tech partners including Xbox, Fortnite, Mountain Dew, Intel and Riot Games. Work seen by 100M+ viewers.</p>
+        </div>
+
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">UFC<small>Ultimate Fighting Championship</small></div>
+          <div class="pm-xp__role">Post Producer &amp; Motion Designer</div>
+          <p class="pm-xp__what">Four years developing promos for Pay-Per-View events and leading creative and post-production for flagship programming and global partners.</p>
+        </div>
+        <div class="pm-xp__row">
+          <div class="pm-xp__org">Impact Gaming<small>Grassroots Gaming</small></div>
+          <div class="pm-xp__role">Creative Director</div>
+          <p class="pm-xp__what">Managed end-to-end production for marketing initiatives, including the flagship documentary series Impact Inspire.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-section pm-final">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">Hiring?</p>
+      <h2>Need someone who ships?</h2>
+      <p class="pm-lede">Tell me about the role or the project. I’ll reply within 1–2 business days with an honest next step.</p>
+      <div class="pm-cta-row">
+        <a class="pm-btn pm-btn--light" href="#contact">Start a conversation &rarr;</a>
+        <a class="pm-btn pm-btn--ghost" href="/assets/tj_resume.pdf">Download résumé</a>
+      </div>
+    </div>
+  </section>
+
+</div>

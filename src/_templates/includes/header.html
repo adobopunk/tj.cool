@@ -3,65 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="dark light" />
 
-    <title>{{ client }}</title>
-    <!-- SEO -->
+    <title>{{ "title" | seo }}</title>
 
-    <meta
-      name="description"
-      content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
-    />
-
-    <meta property="og:title" content="{{ title }}" />
-    <meta
-      property="og:description"
-      content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
-    />
+    <meta name="description" content="{{ "description" | seo }}" />
+    <meta name="author" content="TJ Lien" />
+    {% if noindex %}<meta name="robots" content="noindex, follow" />{% else %}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />{% endif %}
+    <meta property="og:title" content="{{ "shareTitle" | seo }}" />
+    <meta property="og:description" content="{{ "description" | seo }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url | url }}" />
-    <meta
-      property="og:image"
-      content="{{ site.url }}{% if image %}{{ image }}{% else %}/assets/img/og-image.jpg{% endif %}"
-    />
+    <meta property="og:type" content="{% if feature == "yes" %}article{% else %}website{% endif %}" />
+    {% include "includes/head-meta.html" %}
 
-    <meta property="og:type" content="website" />
-
-    <!-- Favicon -->
-
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon/favicon-96x96.png"
-      sizes="96x96"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon/favicon-96x96.png"
-      sizes="96x96"
-    />
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/favicon/apple-touch-icon.png"
-    />
-    <meta name="apple-mobile-web-app-title" content="Tifa Jade" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="TJ Lien" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <meta name="theme-color" id="theme-color" content="#0d1512" />
 
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
+    <script type="application/ld+json">{{ "jsonld" | seo | safe }}</script>
+
     <link rel="stylesheet" href="/assets/css/pico.jade.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
-
-    <link rel="preconnect" href="https://player.vimeo.com" />
-    <link rel="preconnect" href="https://i.vimeocdn.com" />
+    <link rel="stylesheet" href="/assets/css/pm.css" />
 
     <script>
-      // Check local storage for theme and set it before the page renders
-      const savedTheme = localStorage.getItem("theme") || "light";
-      document.documentElement.setAttribute("data-theme", savedTheme);
+      // Dark is the default. A visitor's saved choice (via the toggle) wins.
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light") t = "dark";
+        document.documentElement.setAttribute("data-theme", t);
+        var m = document.getElementById("theme-color");
+        if (m) m.setAttribute("content", t === "dark" ? "#0d1512" : "#f8faf8");
+      })();
     </script>
 
     <script
@@ -71,6 +49,5 @@
     ></script>
   </head>
   <body>
+    <div class="pm-bg" aria-hidden="true"><span class="pm-bg__blob pm-bg__blob--a"><i></i></span><span class="pm-bg__blob pm-bg__blob--b"><i></i></span><span class="pm-bg__blob pm-bg__blob--c"><i></i></span></div>
     <a href="#main" class="visually-hidden">Skip to main content</a>
-  </body>
-</html>

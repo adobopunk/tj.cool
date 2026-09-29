@@ -1,0 +1,31 @@
+---
+layout: "layouts/base.html"
+permalink: "/case-studies/"
+client: "Case Studies | TJ Lien, Creative Director & Project Manager"
+subtitle: "Results-first case studies from a creative director and project manager who has delivered 100+ branded events and campaigns for UFC, Xbox, Fortnite and Mountain Dew."
+description: "Case studies from TJ Lien, a creative director and project manager: esports tournaments, broadcasts and campaigns for Activision, Xbox, Fortnite and more."
+image: "/assets/img/projects/otg-allstars/vlcsnap-2025-02-26-19h52m03s087.webp"
+---
+
+<div class="pm no-animation">
+  <section class="pm-page-hero">
+    <div class="pm-wrap">
+      <p class="pm-eyebrow">Case studies</p>
+      <h1>Delivered projects, with the numbers to show for it.</h1>
+      <p class="pm-lede">
+        Every project here shipped to a real audience. Each case study covers
+        the brief, how the work was run, and what it achieved.
+      </p>
+    </div>
+  </section>
+
+  <section class="pm-section" style="padding-top: 1rem">
+    <div class="pm-wrap">
+      <div class="pm-grid-3">
+        {% for project in collections.animation %}
+          {% include "includes/pm-case.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>

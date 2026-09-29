@@ -51,21 +51,6 @@
   pointer-events: none; /* Prevent interaction with overlay */
 }
 
-.showreel {
-  // opacity: 0;
-  font-size: 0.75rem;
-
-  @include u.breakpoint-down(small) {
-    margin: 0 auto;
-    display: block;
-    font-size: u.rem(20);
-  }
-}
-
-.showreel.show {
-  opacity: 1;
-}
-
 .chevron-container {
   position: absolute; /* Position relative to the nearest positioned ancestor */
   bottom: 20px; /* Distance from the bottom of the viewport */

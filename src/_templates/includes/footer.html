@@ -1,47 +1,54 @@
-{% include "includes/showreel-overlay.html" %}
-
-
-<footer class="footer" id="contact">
-    <h2 class="visually-hidden">Footer</h2>
-<div class="footer__wrapper wrapper-f">
-  <!-- {% include "includes/funfacts.html" %} -->
-</div>
-
-    <div class="footer__wrapper wrapper-f two-col">
-
-      <div class="footer__info">
-        {% include "includes/contact-intro.html" %}
-             
-      {% include "includes/contact-form.html" %}
-
+<footer class="pm-footer" id="contact">
+  <div class="pm-wrap pm-footer__top">
+    <div>
+      <p class="pm-eyebrow">Let’s talk</p>
+      <h2>Hiring a creative director or project manager?</h2>
+      <p class="pm-lede">
+        Tell me about the role or the project. I reply within 1–2 business
+        days with an honest next step.
+      </p>
+      <div class="pm-footer__links">
+        <a class="pm-btn pm-btn--ghost" href="mailto:hire@tj.cool">hire@tj.cool</a>
+        <a class="pm-btn pm-btn--ghost" href="/assets/tj_resume.pdf">Résumé (PDF)</a>
       </div>
-
-
-          
     </div>
-    {% include "includes/backtotop.html" %}
-    {% include "includes/legal.html" %}
-
-
+    <div>{% include "includes/contact-form.html" %}</div>
+  </div>
+  <div class="pm-footer__legal">
+    <div class="pm-wrap">
+      <p>&copy; <span class="currentYear"></span> TJ Lien. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <a href="https://www.linkedin.com/in/tifajade/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:hire@tj.cool">Email</a>
+      </nav>
+    </div>
+  </div>
 </footer>
-<!-- Calendly badge widget begin -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="/app/js/calendly.js" type="text/javascript" async></script>
-<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/connect-tifajade/30min?primary_color=007a50', text: 'Schedule a Call With Me', color: '#007a50', textColor: '#ffffff', branding: true }); }</script>
-<!-- Calendly badge widget end -->
 
-<script src="/app/js/fadein.js" defer></script>
+<dialog class="pm-modal" id="contact-modal" aria-labelledby="contact-modal-title">
+  <div class="pm-modal__inner">
+    <button type="button" class="pm-modal__close" aria-label="Close" data-modal-close>&times;</button>
+    <p class="pm-eyebrow">Let’s talk</p>
+    <h2 id="contact-modal-title">Hiring a creative director or project manager?</h2>
+    <p class="pm-modal__lede">Tell me about the role or the project. I reply within 1–2 business days.</p>
+    <div data-modal-form></div>
+    <div class="pm-modal__links">
+      <a class="pm-btn pm-btn--ghost pm-btn--sm" href="mailto:hire@tj.cool">hire@tj.cool</a>
+      <a class="pm-btn pm-btn--ghost pm-btn--sm" href="/assets/tj_resume.pdf">Résumé (PDF)</a>
+    </div>
+  </div>
+</dialog>
+
 <script src="/app/js/darkmode.js" defer></script>
-<script src="/app/js/nav.js" defer></script>
-<script src="/app/js/showreel.js" defer></script>
-<script src="/app/js/footer.js" defer></script>
-<script src="/app/js/header.js" defer></script>
-
 <script src="/app/js/togglelogo.js" defer></script>
-<script src="/app/js/tooltip.js" defer></script>
-<script src="/app/js/hover.js" defer></script>
-<!-- <script src="/app/js/funfacts.js"></script> -->
-<!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
-
+<script src="/app/js/footer.js" defer></script>
+<script src="/app/js/pm-bg.js" defer></script>
+<script src="/app/js/pm-modal.js" defer></script>
+<script src="/app/js/pm-count.js" defer></script>
+<script src="/app/js/pm-hero-video.js" defer></script>
+<script src="/app/js/pm-parallax.js" defer></script>
+<script src="/app/js/pm-lazyvideo.js" defer></script>
+<script src="/app/js/pm-captions.js" defer></script>
+<script src="/app/js/pm-timeline.js" defer></script>
 </body>
 </html>

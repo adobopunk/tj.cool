@@ -9,24 +9,24 @@ document.addEventListener("DOMContentLoaded", function () {
       document.documentElement.getAttribute("data-theme") === "dark";
 
     // Update logo
-    logo.src = isDarkMode
-      ? "/assets/img/logo_darkmode/tifajade_logo.png"
-      : "/assets/img/logo_lightmode/TifaJade-_Light_Mode-09.png";
+    if (logo) logo.src = isDarkMode
+      ? "/assets/img/logo_darkmode/logo-wordmark-dark.png"
+      : "/assets/img/logo_lightmode/logo-wordmark-light.png";
 
     // Update main icon
-    icon.src = isDarkMode
-      ? "/assets/img/logo_darkmode/tifajade_icon.png"
-      : "/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png";
+    if (icon) icon.src = isDarkMode
+      ? "/assets/img/logo_darkmode/logo-icon-dark.png"
+      : "/assets/img/logo_lightmode/logo-icon-light.png";
 
     // Update hamburger icon
-    hamburgerIcon.src = isDarkMode
-      ? "/assets/img/logo_darkmode/tifajade_icon.png"
-      : "/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png";
+    if (hamburgerIcon) hamburgerIcon.src = isDarkMode
+      ? "/assets/img/logo_darkmode/logo-icon-dark.png"
+      : "/assets/img/logo_lightmode/logo-icon-light.png";
 
     // Update back icon
-    backIcon.src = isDarkMode
-      ? "/assets/img/logo_darkmode/tifajade_icon.png"
-      : "/assets/img/logo_lightmode/TifaJade-_Light_Mode-10.png";
+    if (backIcon) backIcon.src = isDarkMode
+      ? "/assets/img/logo_darkmode/logo-icon-dark.png"
+      : "/assets/img/logo_lightmode/logo-icon-light.png";
   }
 
   // Run once on page load

@@ -1,0 +1,13 @@
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+<meta property="og:site_name" content="{{ site.author }}" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="{{ image | absoluteImage }}" />
+<meta property="og:image:alt" content="{{ "shareTitle" | seo }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ "shareTitle" | seo }}" />
+<meta name="twitter:description" content="{{ "description" | seo }}" />
+<meta name="twitter:image" content="{{ image | absoluteImage }}" />
+<link rel="preload" href="/assets/fonts/Rethink-Sans/RethinkSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/Hahmlet/Hahmlet-Regular.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/Newsreader/newsreader-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin />
+{{ "preconnect" | seo | safe }}
