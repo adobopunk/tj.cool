@@ -3,21 +3,29 @@
 <main id="main">
   <article class="pm pm-project">
     <section class="pm-page-hero pm-page-hero--media">
-      <div class="pm-hero-media" aria-hidden="true">
-        {% if video %}
+      <div class="pm-hero-clip">
+      <div class="pm-hero-media{% if heroVimeo %} pm-hero-media--video{% endif %}" aria-hidden="true">
+        {% if heroVimeo %}
+        <div class="pm-hero-video">
+          <iframe title="" tabindex="-1" loading="eager"
+            src="https://player.vimeo.com/video/{{ heroVimeo }}?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;quality=1080p&amp;dnt=1"
+            allow="autoplay; encrypted-media"></iframe>
+        </div>
+        {% elif video %}
         <video autoplay muted loop playsinline preload="metadata" poster="{{ image | projectImage }}">
           {% if video.webm %}<source src="{{ video.webm }}" type="video/webm" />{% endif %}
           {% if video.mp4 %}<source src="{{ video.mp4 }}" type="video/mp4" />{% endif %}
           {% if not video.webm and not video.mp4 %}<source src="{{ video }}" />{% endif %}
         </video>
         {% else %}
-        <img src="{{ image | projectImage }}" alt="" width="1920" height="1080" />
+        <img src="{{ image | projectImage }}" alt="" width="1920" height="1080" fetchpriority="high" decoding="async" />
         {% endif %}
+      </div>
       </div>
       <div class="pm-wrap">
         <a class="pm-crumb" href="/case-studies/"><span aria-hidden="true">&larr;</span> All case studies</a>
         <p class="pm-eyebrow">{{ client }}{% if agency %} · {{ agency }}{% endif %}</p>
-        <h1>{{ title }}</h1>
+        <h1>{% for line in title.split("\n") %}{{ line }}{% if not loop.last %}<br />{% endif %}{% endfor %}</h1>
         {% if subtitle %}<p class="pm-lede">{{ subtitle }}</p>{% endif %}
         {% if metric %}<div class="pm-hero-metric"><strong>{{ metric }}</strong><span>{{ metricLabel }}</span></div>{% endif %}
         {% include "includes/details.html" %}

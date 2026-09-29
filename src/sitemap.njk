@@ -8,12 +8,6 @@ eleventyExcludeFromCollections: true
         {% if page.url and not page.data.draft and not page.data.noindex %}
         <url>
             <loc>{{ site.url }}{{ page.url | url }}</loc>
-            
-            {% if page.date %}
-            <lastmod>{{ page.date.toISOString() }}</lastmod>
-            {% endif %}
-
-            <changefreq>{{ page.data.changeFreq or "monthly" }}</changefreq>
         </url>
         {% endif %}
     {% endfor %}

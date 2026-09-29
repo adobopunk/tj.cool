@@ -1,9 +1,9 @@
 {# Expects `project` (an 11ty collection item) and optional `featureCard` #}
 <a class="pm-case{% if featureCard %} pm-case--feature{% endif %}" href="{{ project.url }}">
-  <div class="pm-case__img"><img src="{{ project.data.image | projectImage }}" alt="{{ project.data.client }}: {{ project.data.title }}" loading="lazy" decoding="async" width="1920" height="1080" /></div>
+  <div class="pm-case__img"><img src="{% if featureCard %}{{ (project.data.cardImage or project.data.image) | projectImage }}{% else %}{{ (project | cardThumb) or (project.data.image | projectImage) }}{% endif %}"{% if featureCard and project.data.cardImagePosition %} style="object-position: {{ project.data.cardImagePosition }}"{% endif %} alt="{{ project.data.client }}: {{ project.data.title | flat }}" loading="lazy" decoding="async" width="1920" height="1080" /></div>
   <div class="pm-case__body">
     <p class="pm-case__meta">{{ project.data.client }}{% if project.data.length %} · {{ project.data.length }}{% endif %}</p>
-    <h3>{{ project.data.title }}</h3>
+    <h3>{{ project.data.title | flat }}</h3>
     {% if project.data.subtitle %}<p class="pm-case__result">{{ project.data.subtitle }}</p>{% endif %}
     {% if project.data.metric %}<div class="pm-metric"><strong>{{ project.data.metric }}</strong><span>{{ project.data.metricLabel }}</span></div>{% endif %}
     {% if featureCard %}<span class="pm-btn pm-btn--ghost pm-btn--sm pm-case__more">Read the case study &rarr;</span>{% endif %}

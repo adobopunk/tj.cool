@@ -1,5 +1,8 @@
 # Search engines and link-preview crawlers are welcome
 User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Google-InspectionTool
+User-agent: BingPreview
 User-agent: Bingbot
 User-agent: Slurp
 User-agent: DuckDuckBot
@@ -37,4 +40,4 @@ Disallow: /
 User-agent: *
 Disallow: /
 
-Sitemap: https://tifajade.com/sitemap.xml
+Sitemap: https://tj.cool/sitemap.xml

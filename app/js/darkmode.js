@@ -1,7 +1,6 @@
-// Light/dark switch. Follows the system preference until the visitor chooses.
+// Light/dark switch. Dark is the default; the visitor's saved choice wins.
 (function () {
   const root = document.documentElement;
-  const media = window.matchMedia("(prefers-color-scheme: dark)");
   const switches = document.querySelectorAll(".theme-toggle");
 
   function saved() {
@@ -13,12 +12,15 @@
     }
   }
 
+  const themeColor = document.getElementById("theme-color");
+
   function apply(theme) {
     root.setAttribute("data-theme", theme);
+    if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#0d1512" : "#f8faf8");
     switches.forEach((el) => el.setAttribute("aria-checked", String(theme === "dark")));
   }
 
-  apply(saved() || (media.matches ? "dark" : "light"));
+  apply(saved() || "dark");
 
   switches.forEach((el) => {
     el.addEventListener("click", () => {
@@ -30,8 +32,4 @@
     });
   });
 
-  // Keep following the system when no explicit choice has been made
-  media.addEventListener("change", (e) => {
-    if (!saved()) apply(e.matches ? "dark" : "light");
-  });
 })();

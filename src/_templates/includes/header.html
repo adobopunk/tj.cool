@@ -3,45 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="dark light" />
 
-    {% if title and client %}<title>{{ client }}: {{ title }} | Tifa Jade, Producer &amp; Project Manager</title>{% else %}<title>{% if title %}{{ title }}{% else %}{{ client }}{% endif %}</title>{% endif %}
+    <title>{{ "title" | seo }}</title>
 
-    <meta
-      name="description"
-      content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
-    />
-    <meta property="og:title" content="{% if title and client %}{{ client }}: {{ title }}{% else %}{% if title %}{{ title }}{% else %}{{ client }}{% endif %}{% endif %}" />
-    <meta
-      property="og:description"
-      content="{% if subtitle %}{{ subtitle }}{% else %}{{ site.description }}{% endif %}"
-    />
+    <meta name="description" content="{{ "description" | seo }}" />
+    <meta name="author" content="TJ Lien" />
+    {% if noindex %}<meta name="robots" content="noindex, follow" />{% else %}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />{% endif %}
+    <meta property="og:title" content="{{ "shareTitle" | seo }}" />
+    <meta property="og:description" content="{{ "description" | seo }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url | url }}" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="{% if feature == "yes" %}article{% else %}website{% endif %}" />
     {% include "includes/head-meta.html" %}
 
     <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Tifa Jade" />
+    <meta name="apple-mobile-web-app-title" content="TJ Lien" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <meta name="theme-color" content="#f8faf8" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0d1512" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" id="theme-color" content="#0d1512" />
+
+    <script type="application/ld+json">{{ "jsonld" | seo | safe }}</script>
 
     <link rel="stylesheet" href="/assets/css/pico.jade.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/pm.css" />
 
     <script>
-      // Use the saved choice, otherwise follow the visitor's system preference
+      // Dark is the default. A visitor's saved choice (via the toggle) wins.
       (function () {
         var t = null;
         try { t = localStorage.getItem("theme"); } catch (e) {}
-        if (t !== "light" && t !== "dark") {
-          t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
+        if (t !== "light") t = "dark";
         document.documentElement.setAttribute("data-theme", t);
+        var m = document.getElementById("theme-color");
+        if (m) m.setAttribute("content", t === "dark" ? "#0d1512" : "#f8faf8");
       })();
     </script>
 
