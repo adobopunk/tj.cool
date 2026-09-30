@@ -358,7 +358,7 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
 .pm-hero-metric strong { font-family: var(--pm-head); font-weight: 400; font-size: clamp(2.8rem, 2rem + 3.6vw, 5rem); letter-spacing: -.05em; line-height: .9; color: var(--pm-jade); }
 .pm-hero-metric span { font-size: var(--fs-base); color: var(--pm-muted); max-width: 30ch; line-height: 1.35; padding-top: .2rem; }
 
-.pm-prose { padding-block: clamp(1.5rem, 3vw, 2.5rem) clamp(3rem, 6vw, 4.5rem); }
+.pm-prose { --pm-flow: clamp(2.5rem, 5vw, 4rem); padding-block: clamp(1.5rem, 3vw, 2.5rem) clamp(3rem, 6vw, 4.5rem); }
 .pm-prose > * { max-width: none; }
 .pm-prose h2 { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem); letter-spacing: -.03em; line-height: 1.1; margin: clamp(3rem, 6vw, 4.75rem) 0 clamp(1.25rem, 2.5vw, 1.75rem); }
 .pm-prose h3 { font-size: 1.25rem; letter-spacing: -.02em; margin: 2rem 0 .75rem; }
@@ -378,15 +378,39 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
 /* Touch screens can't hover, so keep captions visible there */
 .pm-prose img { border-radius: 0; height: auto; }
 .pm-prose .side-by-side { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1rem; align-items: start; margin-block: clamp(2rem, 4.5vw, 3.25rem); width: 100%; }
-.pm-prose .side-by-side:has(> img, > video, > figure, > .vimeo-container):not(:has(> p, > h2, > h3)) { margin-block: 1.25rem; }
 .pm-prose .side-by-side > * { width: auto; flex: none; height: auto; min-width: 0; }
-/* Text columns sit on the page with no card, but need room between them */
-.pm-prose .side-by-side:has(> p, > h2, > h3) { column-gap: clamp(2rem, 4vw, 3.5rem); row-gap: 1.25rem; }
 .pm-prose .side-by-side > h2, .pm-prose .side-by-side > h3 { margin: 0; padding: 0; }
 .pm-prose .side-by-side > img, .pm-prose .side-by-side > video { width: 100%; }
-.pm-prose .side-by-side > figure { justify-self: center; }
-.pm-prose .side-by-side > p.big { padding: 0 clamp(0rem, 2vw, 1.5rem) 0 0; margin: 0; }
 .pm-prose .side-by-side p { max-width: none; margin: 0; }
+/* ---- Side-by-side layouts (applies to every case study) ----
+   Author with <div class="side-by-side"> and put any of these inside:
+   - image/figure + <div> of text  -> two-column row; DOM order sets the side, so alternate them
+   - heading (or p.big) + paragraph -> narrow lead column beside the body copy
+   - several paragraphs             -> equal text columns
+   - images only                    -> equal columns, centred
+   Under 48em every layout is a single column; images always lead their text. */
+.pm-prose .side-by-side { align-items: start; column-gap: clamp(2.5rem, 5vw, 4.5rem); row-gap: 1.5rem; margin-block: var(--pm-flow); }
+.pm-prose .side-by-side > div { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+.pm-prose .side-by-side p { max-width: 56ch; }
+.pm-prose .side-by-side > p.big, .pm-prose .side-by-side > div > p.big { padding: 0; }
+.pm-prose .side-by-side > img, .pm-prose .side-by-side > figure { width: 100%; margin: 0; }
+.pm-prose .side-by-side > figure > img { width: 100%; }
+.pm-prose .side-by-side:has(> :is(img, video, figure, .vimeo-container)):not(:has(> :is(p, h2, h3, div:not(.vimeo-container)))) { align-items: center; column-gap: clamp(1rem, 2.5vw, 2rem); margin-block: 1.5rem; }
+/* image + text row */
+.pm-prose .side-by-side:has(> :is(img, figure, video)):has(> div:not(.vimeo-container)), .pm-prose .split { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; }
+/* heading + paragraph */
+.pm-prose .side-by-side:has(> :is(h2, h3, p.big):first-child):not(:has(> div, > img, > figure)):has(> :nth-child(2):last-child) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); }
+/* Headings inside a row start flush with the top of the row */
+.pm-prose .side-by-side h2, .pm-prose .side-by-side h3, .pm-prose .side-by-side > div > :first-child { margin-top: 0; }
+/* Media/embeds sitting directly in the page get the same breathing room as rows */
+.pm-prose > :is(video, img, figure, .vimeo-container), .pm-prose > div[style*="padding-top"] { margin-block: var(--pm-flow); }
+.pm-prose > figure:has(> .side-by-side) { margin-block: var(--pm-flow); }
+.pm-prose > figure > .side-by-side { margin-block: 0; }
+@media (max-width: 47.9em) {
+  .pm-prose .side-by-side, .pm-prose .side-by-side:has(> :is(img, figure, video)):has(> div:not(.vimeo-container)), .pm-prose .split, .pm-prose .side-by-side:has(> :is(h2, h3, p.big):first-child):not(:has(> div, > img, > figure)):has(> :nth-child(2):last-child) { grid-template-columns: minmax(0, 1fr); margin-block: 2.25rem; row-gap: 1.25rem; }
+  .pm-prose .side-by-side > :is(img, figure), .pm-prose .split > figure { order: -1; }
+  .pm-prose .side-by-side > img, .pm-prose .side-by-side > figure { max-width: 100%; }
+}
 .pm-prose .contributions { text-align: left; margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); }
 .pm-prose .contributions ul, .pm-prose ul { list-style: none; padding: 0; margin: 1.25rem 0; display: flex; flex-wrap: wrap; gap: .5rem; }
 .pm-prose li { margin: 0; padding: .3rem .75rem; border: 1px solid var(--pm-border); background: var(--pm-surface); font-family: var(--pm-serif); font-size: var(--fs-base); color: var(--pm-text); }

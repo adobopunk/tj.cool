@@ -4,7 +4,10 @@
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (!("IntersectionObserver" in window)) return;
 
-  const els = document.querySelectorAll(".pm-stat strong, .pm-metric strong, .pm-hero-metric strong");
+  // Containers marked data-no-count (case studies index, "More case studies") show final numbers immediately
+  const els = [...document.querySelectorAll(".pm-stat strong, .pm-metric strong, .pm-hero-metric strong")].filter(
+    (el) => !el.closest("[data-no-count]")
+  );
   if (!els.length) return;
 
   const parse = (text) => {
