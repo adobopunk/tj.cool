@@ -336,7 +336,7 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
 .pm-band .pm-value p { color: #c9e4d8; }
 @media (max-width: 800px) { .pm-values { grid-template-columns: 1fr; } }
 
-.pm-contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.pm-contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.25rem; }
 .pm-contact-card { display: block; padding: 1.5rem; border: 1px solid var(--pm-border); background: var(--pm-surface); color: var(--pm-text); }
 .pm-contact-card h3 { font-size: 1.25rem; margin-bottom: .35rem; }
 .pm-contact-card p { margin: 0; color: var(--pm-muted); font-size: var(--fs-sm); }

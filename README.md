@@ -81,6 +81,5 @@ The site is automatically deployed to Netlify on every push to the `main` branch
 Check out my portfolio live at [tj.cool](https://tj.cool) or connect with me on:
 
 - [Email](mailto:hire@tj.cool)
-- [LinkedIn](https://www.linkedin.com/in/tifajade/)
 
 Thanks for stopping by!
