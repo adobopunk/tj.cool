@@ -314,7 +314,7 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
    About
    ========================================================================== */
 .pm-about-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
-.pm-about-top img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 0; border: 1px solid var(--pm-border); }
+.pm-about-top img { width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; border-radius: 0; border: 1px solid var(--pm-border); }
 @media (max-width: 800px) { .pm-about-top { grid-template-columns: 1fr; } .pm-about-top img { max-width: 20rem; } }
 .pm-timeline { position: relative; margin-top: clamp(1.75rem, 4vw, 3rem); }
 .pm-timeline::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--pm-border); }
