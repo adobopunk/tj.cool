@@ -280,6 +280,7 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
 .pm-feature h3 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.2rem); letter-spacing: -.03em; line-height: 1.1; max-width: 18ch; }
 .pm-feature p:not(.pm-feature__kicker) { margin: .8rem 0 0; color: var(--pm-muted); line-height: 1.6; font-size: var(--fs-base); max-width: 44ch; }
 .pm-ph { position: relative; aspect-ratio: 16/10; display: grid; place-items: center; text-align: center; padding: 1.5rem; border: 1px dashed color-mix(in srgb, var(--pm-jade) 55%, var(--pm-border)); background: repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--pm-jade) 6%, transparent) 14px 15px), var(--pm-surface); color: var(--pm-muted); font-family: var(--pm-serif); font-style: italic; font-size: var(--fs-sm); }
+.pm-feature__img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; border: 1px solid var(--pm-border); }
 .pm-ph strong { display: block; font-family: var(--pm-head); font-style: normal; font-weight: 400; font-size: var(--fs-base); color: var(--pm-text); margin-bottom: .25rem; }
 @media (max-width: 800px) { .pm-feature { grid-template-columns: 1fr; } .pm-feature:nth-child(even) .pm-feature__media { order: 0; } }
 
