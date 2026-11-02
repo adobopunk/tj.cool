@@ -235,7 +235,6 @@ h2.project__step-title,
 .details {
   display: flex;
   justify-content: space-between;
-  font-family: "Ohno Blazeface";
   @include u.breakpoint(medium) {
     // flex-direction: row;
     // align-items: flex-start;

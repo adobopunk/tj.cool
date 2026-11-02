@@ -21,6 +21,9 @@
   --pm-text: #1c2421;
   --pm-muted: #55625c;
   --pm-border: #dbe4df;
+  --pm-spot: rgba(0, 150, 104, .26);
+  --pm-card-glow: rgba(0, 150, 104, .24);
+  --pm-card-edge: rgba(0, 150, 104, .38);
   --pm-glow-1: rgba(0, 122, 80, .30);
   --pm-glow-2: rgba(20, 150, 140, .22);
   --pm-glow-3: rgba(70, 190, 140, .24);
@@ -54,6 +57,9 @@
   --pm-text: #eef4f1;
   --pm-muted: #9bb0a7;
   --pm-border: #24352e;
+  --pm-spot: rgba(64, 224, 164, .36);
+  --pm-card-glow: rgba(64, 224, 164, .26);
+  --pm-card-edge: rgba(89, 217, 164, .5);
   --pm-glow-1: rgba(47, 191, 138, .20);
   --pm-glow-2: rgba(40, 170, 170, .14);
   --pm-glow-3: rgba(80, 210, 160, .10);
@@ -89,6 +95,8 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
 .pm-bg__blob--a { width: 78vmax; height: 78vmax; left: 45%; top: -30vmax; animation: pm-drift-a 42s ease-in-out infinite alternate; }
 .pm-bg__blob--b { width: 64vmax; height: 64vmax; left: -22vmax; top: 38%; animation: pm-drift-b 54s ease-in-out infinite alternate; }
 .pm-bg__blob--c { width: 56vmax; height: 56vmax; left: 52%; top: 52%; animation: pm-drift-c 66s ease-in-out infinite alternate; }
+.pm-bg__spot { position: absolute; left: 0; top: 0; width: 64vmax; height: 64vmax; margin: -32vmax 0 0 -32vmax; border-radius: 50%; background: radial-gradient(closest-side, var(--pm-spot), color-mix(in srgb, var(--pm-spot) 35%, transparent) 45%, transparent 100%); opacity: 0; transition: opacity .8s ease; will-change: transform; }
+.pm-bg__spot.is-on { opacity: 1; }
 .pm-bg__blob--a i { background: radial-gradient(closest-side, var(--pm-glow-1), transparent 72%); }
 .pm-bg__blob--b i { background: radial-gradient(closest-side, var(--pm-glow-2), transparent 72%); }
 .pm-bg__blob--c i { background: radial-gradient(closest-side, var(--pm-glow-3), transparent 72%); }
@@ -100,6 +108,8 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
    Shared type + buttons
    ========================================================================== */
 .pm-eyebrow { font-family: var(--pm-serif); font-style: italic; font-size: var(--fs-md); color: var(--pm-jade); margin: 0 0 .9rem; font-weight: 450; }
+/* Hidden on screen, still read by search engines and screen readers */
+.pm-visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .pm-section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .pm-section h2 { font-size: clamp(1.8rem, 1.3rem + 2.2vw, 3rem); letter-spacing: -.03em; line-height: 1.08; max-width: 20ch; }
 .pm-lede { color: var(--pm-muted); font-size: clamp(var(--fs-base), .95rem + .3vw, 1.15rem); line-height: 1.6; max-width: 58ch; margin: 1.1rem 0 0; }
@@ -186,10 +196,31 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
 /* ==========================================================================
    Hover system: every card-like box lifts and glows, linked or not
    ========================================================================== */
-.pm-case, .pm-contact-card, .pm-stat, .pm-step, .pm-value, .pm-quote, .pm-fact, .pm-xp__row, .pm-ph, .pm-quote-block { transition: border-color .2s, transform .2s, box-shadow .2s, background .2s; }
+.pm-case, .pm-contact-card, .pm-stat, .pm-step, .pm-value, .pm-quote, .pm-fact, .pm-xp__row, .pm-ph, .pm-quote-block { transition: border-color .25s, transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, background .25s; }
 .pm-case:hover, .pm-contact-card:hover, .pm-stat:hover, .pm-step:hover, .pm-value:hover, .pm-fact:hover, .pm-xp__row:hover, .pm-ph:hover, .pm-quote-block:hover { border-color: var(--pm-jade); transform: translateY(-3px); box-shadow: var(--pm-shadow-hover); }
 .pm-band .pm-quote:hover, .pm-band .pm-value:hover { border-color: #59d9a4; box-shadow: 0 14px 40px -18px rgba(89, 217, 164, .55); background: rgba(255,255,255,.06); }
 .pm-page-hero--media .pm-fact:hover { border-color: #8fe3bf; box-shadow: 0 14px 40px -18px rgba(143, 227, 191, .6); }
+
+/* Pointer-reactive glow: pools under the cursor, falls off toward the far edges.
+   --gx/--gy (px) and --dx/--dy (-1..1) are set by pm-bg.js while a box is hovered. */
+@media (hover: hover) and (pointer: fine) {
+  .pm-case, .pm-contact-card, .pm-stat, .pm-step, .pm-value, .pm-quote, .pm-fact, .pm-quote-block { position: relative; }
+  .pm-case::after, .pm-contact-card::after, .pm-stat::after, .pm-step::after, .pm-value::after, .pm-quote::after, .pm-fact::after, .pm-xp__row::after, .pm-quote-block::after, .pm-ph::after {
+    content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .45s ease; z-index: 1;
+    background:
+      radial-gradient(340px circle at var(--gx, 50%) var(--gy, 50%), var(--pm-card-glow), transparent 72%),
+      radial-gradient(140px circle at var(--gx, 50%) var(--gy, 50%), color-mix(in srgb, var(--pm-card-glow) 85%, transparent), transparent 100%);
+  }
+  .pm-case:hover::after, .pm-contact-card:hover::after, .pm-stat:hover::after, .pm-step:hover::after, .pm-value:hover::after, .pm-quote:hover::after, .pm-fact:hover::after, .pm-xp__row:hover::after, .pm-quote-block:hover::after, .pm-ph:hover::after { opacity: 1; }
+  /* Outer glow leans toward the side the cursor is on */
+  .pm-case:hover, .pm-contact-card:hover, .pm-stat:hover, .pm-step:hover, .pm-value:hover, .pm-fact:hover, .pm-xp__row:hover, .pm-quote-block:hover, .pm-ph:hover {
+    box-shadow: calc(var(--dx, 0) * 16px) calc(var(--dy, 0) * 16px + 8px) 46px -12px var(--pm-card-edge), var(--pm-shadow-hover);
+  }
+  .pm-band .pm-quote:hover, .pm-band .pm-value:hover { box-shadow: calc(var(--dx, 0) * 16px) calc(var(--dy, 0) * 16px + 8px) 46px -12px rgba(89, 217, 164, .6); }
+  .pm-btn { position: relative; overflow: hidden; }
+  .pm-btn::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .35s ease; background: radial-gradient(90px circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.28), transparent 100%); }
+  .pm-btn:hover::after { opacity: 1; }
+}
 
 /* ==========================================================================
    Stats + trust
@@ -288,10 +319,11 @@ main#main > article { padding: 0; margin: 0; border-radius: 0; box-shadow: none;
    Experience
    ========================================================================== */
 .pm-xp { margin-top: clamp(1.75rem, 4vw, 3rem); display: grid; gap: .75rem; }
-.pm-xp__row { display: grid; grid-template-columns: 13rem 1fr 1.7fr; gap: 1.25rem; padding: 1.25rem 1.4rem; border: 1px solid var(--pm-border); background: var(--pm-surface); align-items: baseline; position: relative; }
+.pm-xp__row { display: grid; grid-template-columns: 13rem 1fr 1.7fr; gap: 1.25rem; padding: 1.25rem 1.4rem; border: 1px solid var(--pm-border); background: var(--pm-surface); align-items: center; position: relative; }
 .pm-xp__row:nth-child(even) { background: color-mix(in srgb, var(--pm-surface) 78%, var(--pm-jade-tint)); }
 .pm-xp__row::before { content: ""; position: absolute; left: -1px; top: -1px; bottom: -1px; width: 3px; background: var(--pm-jade); transform: scaleY(0); transform-origin: top; transition: transform .25s; }
 .pm-xp__row:hover::before { transform: scaleY(1); }
+.pm-xp__when { display: block; margin: 0 0 .3rem; font-family: var(--pm-head); font-size: .66rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--pm-muted); opacity: .8; font-variant-numeric: tabular-nums; }
 .pm-xp__org { font-family: var(--pm-head); font-size: 1.3rem; letter-spacing: -.02em; line-height: 1.15; }
 .pm-xp__org small { display: block; margin-top: .2rem; font-family: var(--pm-serif); font-style: italic; font-size: var(--fs-xs); letter-spacing: 0; color: var(--pm-muted); }
 .pm-xp__role { font-family: var(--pm-serif); font-style: italic; font-size: var(--fs-base); color: var(--pm-jade); }
